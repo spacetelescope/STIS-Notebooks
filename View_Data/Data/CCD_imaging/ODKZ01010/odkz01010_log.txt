@@ -1,0 +1,179 @@
+2021269172449-I-INFO gc_GenericConversion:  -------------- Generic Conversion Started: odkz01010 ------------
+2021269172449-I-INFO GCO_STIS: Starting...
+2021269172449-I-INFO GCO_poll_status: ===================================================================
+2021269172449-I-INFO GCO_poll_status: -------------- Generic Conversion Processing: odkz01010 ------------- 
+2021269172449-I-INFO -------------- Generic Conversion Started: odkz01010:odkz01aaq -------------
+2018148045032-I-INFO -------------- Data Partitioning Started: odkz01aaq ------------
+2018148045032-I-INFO Partitioning from POD file: lz_4902_069_0000028948
+2018148045032-I-INFO OSF_PROCESSING: for odkz01aaq
+2018148045032-I-INFO DP_dan_present:  DAN file found- will archive pod and dan files
+2018148045032-I-INFO DPI_task::DP_close_oldobs:  SDF lines = 1149, expected pkts = 1150 (single readout), total pkts = 1150
+2018148045032-I-INFO DPI_task::DP_close_oldobs:  1149 Science packets, 1 Engineering (ULX) packets, 0 Bad pkts
+2018148045032-I-INFO DP_close_files:  ...odkz01aaq.pkx was closed
+2018148045032-I-INFO DP_close_files:  ...odkz01aaq.bdx was closed
+2018148045032-I-INFO DP_close_files:  ...odkz01aaq.ulx was closed
+2018148045032-I-INFO DP_close_files:  ...odkz01aaq.pki was closed
+2018148045032-I-INFO DP_close_files:  ...odkz01aaq.uli was closed
+2018148045032-I-INFO DPI_task::DP_close_oldobs:  Copied ...odkz01aiq.shx to ...odkz01aaq.shx
+2018148045032-I-INFO DPI_task::DP_close_oldobs:  -------------- Data Partitioning Ended:   odkz01aaq ------------
+2021269172441-I-INFO ss_SupportSchedule:  -------------- Support Schedule Started: odkz01aaq ------------
+2021269172442-I-INFO ss_SupportSchedule:  -------------- Support Schedule Completed: odkz01aaq ------------
+2021269172447-I-INFO dv_DataValidation:  -------------- Data Validation Started: odkz01aaq ------------
+2021269172447-I-INFO dv_Instrument::assign_first_key: from qolink_sms.start_time= 2018.148:01:34:59
+2021269172447-I-INFO dv_Instrument::assign_first_key: assigned first_keys for 2018.148:01:34:59 using yurintab date: 2016.312:00:00:00
+2021269172447-I-INFO dv_STIS::compare:  Mismatched weight (0) was lower than threshold (55)
+2021269172447-I-INFO dv_DataValidation:  -------------- Data Validation Completed: odkz01aaq ------------
+2021269172448-I-INFO ----------- World Coordinate System Started: odkz01aaq ---------
+2021269172448-I-INFO ----------- World Coordinate System Ended:   odkz01aaq ---------
+2021269172449-I-INFO GC_load_...s: ...odkz01aaq.dvx maxgroup=1
+2021269172449-I-INFO GC_load_...s: ...odkz01aaq.dgx maxgroup=0
+2021269172449-I-INFO GC_load_...s: ...odkz01aaq.dcx maxgroup=1
+2021269172450-I-INFO -------------- Generic Conversion Completed: odkz01aaq -------------
+2021269172450-I-INFO -------------- Generic Conversion Started: odkz01010:odkz01abq -------------
+2018148045032-I-INFO -------------- Data Partitioning Started: odkz01abq ------------
+2018148045032-I-INFO Partitioning from POD file: lz_4902_069_0000028948
+2018148045032-I-INFO OSF_PROCESSING: for odkz01abq
+2018148045032-I-INFO DP_dan_present:  DAN file found- will archive pod and dan files
+2018148045032-I-INFO DPI_task::DP_close_oldobs:  SDF lines = 1149, expected pkts = 1150 (single readout), total pkts = 1150
+2018148045032-I-INFO DPI_task::DP_close_oldobs:  1149 Science packets, 1 Engineering (ULX) packets, 0 Bad pkts
+2018148045032-I-INFO DP_close_files:  ...odkz01abq.pkx was closed
+2018148045032-I-INFO DP_close_files:  ...odkz01abq.bdx was closed
+2018148045032-I-INFO DP_close_files:  ...odkz01abq.ulx was closed
+2018148045032-I-INFO DP_close_files:  ...odkz01abq.pki was closed
+2018148045032-I-INFO DP_close_files:  ...odkz01abq.uli was closed
+2018148045032-I-INFO DPI_task::DP_close_oldobs:  Copied ...odkz01aiq.shx to ...odkz01abq.shx
+2018148045032-I-INFO DPI_task::DP_close_oldobs:  -------------- Data Partitioning Ended:   odkz01abq ------------
+2021269172442-I-INFO ss_SupportSchedule:  -------------- Support Schedule Started: odkz01abq ------------
+2021269172443-I-INFO ss_SupportSchedule:  -------------- Support Schedule Completed: odkz01abq ------------
+2021269172447-I-INFO dv_DataValidation:  -------------- Data Validation Started: odkz01abq ------------
+2021269172447-I-INFO dv_Instrument::assign_first_key: from qolink_sms.start_time= 2018.148:01:42:02
+2021269172447-I-INFO dv_Instrument::assign_first_key: assigned first_keys for 2018.148:01:42:02 using yurintab date: 2016.312:00:00:00
+2021269172447-I-INFO dv_STIS::compare:  Mismatched weight (0) was lower than threshold (55)
+2021269172447-I-INFO dv_DataValidation:  -------------- Data Validation Completed: odkz01abq ------------
+2021269172448-I-INFO ----------- World Coordinate System Started: odkz01abq ---------
+2021269172448-I-INFO ----------- World Coordinate System Ended:   odkz01abq ---------
+2021269172450-I-INFO GC_load_...s: ...odkz01abq.dvx maxgroup=1
+2021269172450-I-INFO GC_load_...s: ...odkz01abq.dgx maxgroup=0
+2021269172450-I-INFO GC_load_...s: ...odkz01abq.dcx maxgroup=1
+2021269172450-I-INFO -------------- Generic Conversion Completed: odkz01abq -------------
+2021269172450-I-INFO -------------- Generic Conversion Started: odkz01010:odkz01acq -------------
+2018148045032-I-INFO -------------- Data Partitioning Started: odkz01acq ------------
+2018148045032-I-INFO Partitioning from POD file: lz_4902_069_0000028948
+2018148045032-I-INFO OSF_PROCESSING: for odkz01acq
+2018148045032-I-INFO DP_dan_present:  DAN file found- will archive pod and dan files
+2018148045032-I-INFO DPI_task::DP_close_oldobs:  SDF lines = 1149, expected pkts = 1150 (single readout), total pkts = 1150
+2018148045032-I-INFO DPI_task::DP_close_oldobs:  1149 Science packets, 1 Engineering (ULX) packets, 0 Bad pkts
+2018148045032-I-INFO DP_close_files:  ...odkz01acq.pkx was closed
+2018148045032-I-INFO DP_close_files:  ...odkz01acq.bdx was closed
+2018148045032-I-INFO DP_close_files:  ...odkz01acq.ulx was closed
+2018148045032-I-INFO DP_close_files:  ...odkz01acq.pki was closed
+2018148045032-I-INFO DP_close_files:  ...odkz01acq.uli was closed
+2018148045032-I-INFO DPI_task::DP_close_oldobs:  Copied ...odkz01aiq.shx to ...odkz01acq.shx
+2018148045032-I-INFO DPI_task::DP_close_oldobs:  -------------- Data Partitioning Ended:   odkz01acq ------------
+2021269172443-I-INFO ss_SupportSchedule:  -------------- Support Schedule Started: odkz01acq ------------
+2021269172444-I-INFO ss_SupportSchedule:  -------------- Support Schedule Completed: odkz01acq ------------
+2021269172447-I-INFO dv_DataValidation:  -------------- Data Validation Started: odkz01acq ------------
+2021269172447-I-INFO dv_Instrument::assign_first_key: from qolink_sms.start_time= 2018.148:01:49:05
+2021269172447-I-INFO dv_Instrument::assign_first_key: assigned first_keys for 2018.148:01:49:05 using yurintab date: 2016.312:00:00:00
+2021269172447-I-INFO dv_STIS::compare:  Mismatched weight (0) was lower than threshold (55)
+2021269172448-I-INFO dv_DataValidation:  -------------- Data Validation Completed: odkz01acq ------------
+2021269172448-I-INFO ----------- World Coordinate System Started: odkz01acq ---------
+2021269172448-I-INFO ----------- World Coordinate System Ended:   odkz01acq ---------
+2021269172450-I-INFO GC_load_...s: ...odkz01acq.dvx maxgroup=1
+2021269172450-I-INFO GC_load_...s: ...odkz01acq.dgx maxgroup=0
+2021269172450-I-INFO GC_load_...s: ...odkz01acq.dcx maxgroup=1
+2021269172450-I-INFO -------------- Generic Conversion Completed: odkz01acq -------------
+2021269172450-I-INFO -------------- Generic Conversion Started: odkz01010:odkz01adq -------------
+2018148045032-I-INFO -------------- Data Partitioning Started: odkz01adq ------------
+2018148045032-I-INFO Partitioning from POD file: lz_4902_069_0000028948
+2018148045032-I-INFO OSF_PROCESSING: for odkz01adq
+2018148045032-I-INFO DP_dan_present:  DAN file found- will archive pod and dan files
+2018148045032-I-INFO DPI_task::DP_close_oldobs:  SDF lines = 1149, expected pkts = 1150 (single readout), total pkts = 1150
+2018148045032-I-INFO DPI_task::DP_close_oldobs:  1149 Science packets, 1 Engineering (ULX) packets, 0 Bad pkts
+2018148045032-I-INFO DP_close_files:  ...odkz01adq.pkx was closed
+2018148045032-I-INFO DP_close_files:  ...odkz01adq.bdx was closed
+2018148045032-I-INFO DP_close_files:  ...odkz01adq.ulx was closed
+2018148045032-I-INFO DP_close_files:  ...odkz01adq.pki was closed
+2018148045032-I-INFO DP_close_files:  ...odkz01adq.uli was closed
+2018148045032-I-INFO DPI_task::DP_close_oldobs:  Copied ...odkz01aiq.shx to ...odkz01adq.shx
+2018148045032-I-INFO DPI_task::DP_close_oldobs:  -------------- Data Partitioning Ended:   odkz01adq ------------
+2021269172444-I-INFO ss_SupportSchedule:  -------------- Support Schedule Started: odkz01adq ------------
+2021269172445-I-INFO ss_SupportSchedule:  -------------- Support Schedule Completed: odkz01adq ------------
+2021269172448-I-INFO dv_DataValidation:  -------------- Data Validation Started: odkz01adq ------------
+2021269172448-I-INFO dv_Instrument::assign_first_key: from qolink_sms.start_time= 2018.148:01:56:08
+2021269172448-I-INFO dv_Instrument::assign_first_key: assigned first_keys for 2018.148:01:56:08 using yurintab date: 2016.312:00:00:00
+2021269172448-I-INFO dv_STIS::compare:  Mismatched weight (0) was lower than threshold (55)
+2021269172448-I-INFO dv_DataValidation:  -------------- Data Validation Completed: odkz01adq ------------
+2021269172448-I-INFO ----------- World Coordinate System Started: odkz01adq ---------
+2021269172448-I-INFO ----------- World Coordinate System Ended:   odkz01adq ---------
+2021269172450-I-INFO GC_load_...s: ...odkz01adq.dvx maxgroup=1
+2021269172450-I-INFO GC_load_...s: ...odkz01adq.dgx maxgroup=0
+2021269172450-I-INFO GC_load_...s: ...odkz01adq.dcx maxgroup=1
+2021269172450-I-INFO -------------- Generic Conversion Completed: odkz01adq -------------
+2021269172450-I-INFO -------------- Generic Conversion Started: odkz01010:odkz01aeq -------------
+2018148045033-I-INFO -------------- Data Partitioning Started: odkz01aeq ------------
+2018148045033-I-INFO Partitioning from POD file: lz_4902_069_0000028948
+2018148045033-I-INFO OSF_PROCESSING: for odkz01aeq
+2018148045033-I-INFO DP_dan_present:  DAN file found- will archive pod and dan files
+2018148045033-I-INFO DPI_task::DP_close_oldobs:  SDF lines = 1149, expected pkts = 1150 (single readout), total pkts = 1150
+2018148045033-I-INFO DPI_task::DP_close_oldobs:  1149 Science packets, 1 Engineering (ULX) packets, 0 Bad pkts
+2018148045033-I-INFO DP_close_files:  ...odkz01aeq.pkx was closed
+2018148045033-I-INFO DP_close_files:  ...odkz01aeq.bdx was closed
+2018148045033-I-INFO DP_close_files:  ...odkz01aeq.ulx was closed
+2018148045033-I-INFO DP_close_files:  ...odkz01aeq.pki was closed
+2018148045033-I-INFO DP_close_files:  ...odkz01aeq.uli was closed
+2018148045033-I-INFO DPI_task::DP_close_oldobs:  Copied ...odkz01aiq.shx to ...odkz01aeq.shx
+2018148045033-I-INFO DPI_task::DP_close_oldobs:  -------------- Data Partitioning Ended:   odkz01aeq ------------
+2021269172445-I-INFO ss_SupportSchedule:  -------------- Support Schedule Started: odkz01aeq ------------
+2021269172446-I-INFO ss_SupportSchedule:  -------------- Support Schedule Completed: odkz01aeq ------------
+2021269172448-I-INFO dv_DataValidation:  -------------- Data Validation Started: odkz01aeq ------------
+2021269172448-I-INFO dv_Instrument::assign_first_key: from qolink_sms.start_time= 2018.148:02:03:11
+2021269172448-I-INFO dv_Instrument::assign_first_key: assigned first_keys for 2018.148:02:03:11 using yurintab date: 2016.312:00:00:00
+2021269172448-I-INFO dv_STIS::compare:  Mismatched weight (0) was lower than threshold (55)
+2021269172448-I-INFO dv_DataValidation:  -------------- Data Validation Completed: odkz01aeq ------------
+2021269172448-I-INFO ----------- World Coordinate System Started: odkz01aeq ---------
+2021269172449-I-INFO ----------- World Coordinate System Ended:   odkz01aeq ---------
+2021269172451-I-INFO GC_load_...s: ...odkz01aeq.dvx maxgroup=1
+2021269172451-I-INFO GC_load_...s: ...odkz01aeq.dgx maxgroup=0
+2021269172451-I-INFO GC_load_...s: ...odkz01aeq.dcx maxgroup=1
+2021269172451-I-INFO -------------- Generic Conversion Completed: odkz01aeq -------------
+2021269172451-I-INFO -------------- Generic Conversion Started: odkz01010:odkz01afq -------------
+2018148045033-I-INFO -------------- Data Partitioning Started: odkz01afq ------------
+2018148045033-I-INFO Partitioning from POD file: lz_4902_069_0000028948
+2018148045033-I-INFO OSF_PROCESSING: for odkz01afq
+2018148045033-I-INFO DP_dan_present:  DAN file found- will archive pod and dan files
+2018148045033-I-INFO DPI_task::DP_close_oldobs:  SDF lines = 1149, expected pkts = 1150 (single readout), total pkts = 1150
+2018148045033-I-INFO DPI_task::DP_close_oldobs:  1149 Science packets, 1 Engineering (ULX) packets, 0 Bad pkts
+2018148045033-I-INFO DP_close_files:  ...odkz01afq.pkx was closed
+2018148045033-I-INFO DP_close_files:  ...odkz01afq.bdx was closed
+2018148045033-I-INFO DP_close_files:  ...odkz01afq.ulx was closed
+2018148045033-I-INFO DP_close_files:  ...odkz01afq.pki was closed
+2018148045033-I-INFO DP_close_files:  ...odkz01afq.uli was closed
+2018148045033-I-INFO DPI_task::DP_close_oldobs:  Copied ...odkz01aiq.shx to ...odkz01afq.shx
+2018148045033-I-INFO DPI_task::DP_close_oldobs:  -------------- Data Partitioning Ended:   odkz01afq ------------
+2021269172446-I-INFO ss_SupportSchedule:  -------------- Support Schedule Started: odkz01afq ------------
+2021269172446-I-INFO ss_SupportSchedule:  -------------- Support Schedule Completed: odkz01afq ------------
+2021269172448-I-INFO dv_DataValidation:  -------------- Data Validation Started: odkz01afq ------------
+2021269172448-I-INFO dv_Instrument::assign_first_key: from qolink_sms.start_time= 2018.148:02:10:14
+2021269172448-I-INFO dv_Instrument::assign_first_key: assigned first_keys for 2018.148:02:10:14 using yurintab date: 2016.312:00:00:00
+2021269172448-I-INFO dv_STIS::compare:  Mismatched weight (0) was lower than threshold (55)
+2021269172448-I-INFO dv_DataValidation:  -------------- Data Validation Completed: odkz01afq ------------
+2021269172449-I-INFO ----------- World Coordinate System Started: odkz01afq ---------
+2021269172449-I-INFO ----------- World Coordinate System Ended:   odkz01afq ---------
+2021269172451-I-INFO GC_load_...s: ...odkz01afq.dvx maxgroup=1
+2021269172451-I-INFO GC_load_...s: ...odkz01afq.dgx maxgroup=0
+2021269172451-I-INFO GC_load_...s: ...odkz01afq.dcx maxgroup=1
+2021269172451-I-INFO -------------- Generic Conversion Completed: odkz01afq -------------
+2021269172451-I-INFO GCO_STIS: -------------- Generic Conversion Completed: odkz01010 ------------- 
+2021269172451-I-INFO gc_GenericConversion:  -------------- Generic Conversion Completed: odkz01010 ------------
+2021269172453-I-INFO-exposure_times-Start ------ Exposure Times Updater for odkz01010 ------
+2021269172453-I-INFO-exposure_times-UPDATE_EXPOSURE_TIMES is False. No update necessary.
+2021269172453-I-INFO-exposure_times-  End ------ Exposure Times Updater Nothing to do for odkz01010 ------
+2021272053116 INFO src=ac_xxx_OWL.run_task fsn=odkz01010 msg="-------------- After Calibration Started for   odkz01010 --------------"
+2021272053116 INFO src=ac_xxx_OWL-hst_missionquery.__init__ msg="HST_Mission_db connection to ... ..."
+2021272053116 INFO src=ac_xxx_OWL-HstScienceDataset.__init__ fsn=odkz01010 msg="Opening connection to ..., ..."
+2021272053116 INFO src=ac_xxx_OWL-HstScienceDataset.determine_collected_members fsn=odkz01010 msg="7 rows found for association odkz01010"
+2021272053116 INFO src=ac_xxx_OWL-hst_missionquery.get_proposal_id fsn=odkz01aaq msg="returning 15172 for odkz01aaq"
+2021272053116 INFO src=ac_xxx_OWL-HstScienceDataset.__init__ fsn=odkz01010 msg="HstScienceDataset(archive_product='odkz01010', archive_product_type='PRODUCT', dataset_type='asn', hst_db=<hst_missionquery.HST_Mission_db object at 0x2af8c2868c40>, instrument='sti', ipppssoot='odkz01010', log=<Logfile.Logfile object at 0x2af8c2868340>, product_exposures={'odkz01aaq': 'CRSPLIT', 'odkz01abq': 'CRSPLIT', 'odkz01acq': 'CRSPLIT', 'odkz01adq': 'CRSPLIT', 'odkz01aeq': 'CRSPLIT', 'odkz01afq': 'CRSPLIT'}, proposal_id='15172', subproducts={})"
+2021272053116 INFO src=ac_xxx_OWL.update_quality_...s fsn=odkz01010 msg="No pdq_summary_update records found for odkz01010."
+2021272053116 INFO src=ac_xxx_OWL.run_task fsn=odkz01010 msg="-------------- After Calibration Completed for odkz01010 --------------"

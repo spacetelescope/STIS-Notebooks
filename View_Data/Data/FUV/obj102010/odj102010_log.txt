@@ -1,0 +1,73 @@
+2022106194543-I-INFO gc_GenericConversion:  -------------- Generic Conversion Started: odj102010 ------------
+2022106194543-I-INFO GCO_STIS: Starting...
+2022106194543-I-INFO GCO_poll_status: ===================================================================
+2022106194543-I-INFO GCO_poll_status: -------------- Generic Conversion Processing: odj102010 ------------- 
+2022106194544-I-INFO -------------- Generic Conversion Started: odj102010:odj102ltq -------------
+2018014104653-I-INFO -------------- Data Partitioning Started: odj102ltq ------------
+2018014104653-I-INFO Partitioning from POD file: lz_4969_032_0000022567
+2018014104654-I-INFO OSF_PROCESSING: for odj102ltq
+2018014104654-I-INFO DP_dan_present:  DAN file found- will archive pod and dan files
+2018014104654-I-INFO DPI_task::DP_close_oldobs:  SDF lines = 1087, expected pkts = 1088 (single readout), total pkts = 1088
+2018014104654-I-INFO DPI_task::DP_close_oldobs:  1087 Science packets, 1 Engineering (ULX) packets, 0 Bad pkts
+2018014104654-I-INFO DP_close_files:  ...odj102ltq.pkx was closed
+2018014104654-I-INFO DP_close_files:  ...odj102ltq.bdx was closed
+2018014104654-I-INFO DP_close_files:  ...odj102ltq.ulx was closed
+2018014104654-I-INFO DP_close_files:  ...odj102ltq.pki was closed
+2018014104654-I-INFO DP_close_files:  ...odj102ltq.uli was closed
+2018014104654-I-INFO DPI_task::DP_close_oldobs:  Copied ...odj102lvq.shx to ...odj102ltq.shx
+2018014104654-I-INFO DPI_task::DP_close_oldobs:  -------------- Data Partitioning Ended:   odj102ltq ------------
+2022106194526-I-INFO ss_SupportSchedule:  -------------- Support Schedule Started: odj102ltq ------------
+2022106194531-I-INFO ss_SupportSchedule:  -------------- Support Schedule Completed: odj102ltq ------------
+2022106194539-I-INFO dv_DataValidation:  -------------- Data Validation Started: odj102ltq ------------
+2022106194539-I-INFO dv_Instrument::assign_first_key: from qolink_sms.start_time= 2018.014:08:28:30
+2022106194539-I-INFO dv_Instrument::assign_first_key: assigned first_keys for 2018.014:08:28:30 using yurintab date: 2016.312:00:00:00
+2022106194540-I-INFO dv_STIS::compare:  Mismatched weight (0) was lower than threshold (55)
+2022106194540-I-INFO dv_DataValidation:  -------------- Data Validation Completed: odj102ltq ------------
+2022106194540-I-INFO ----------- World Coordinate System Started: odj102ltq ---------
+2022106194541-I-INFO ----------- World Coordinate System Ended:   odj102ltq ---------
+2022106194544-I-INFO GC_load_...s: ...odj102ltq.dvx maxgroup=1
+2022106194544-I-INFO GC_load_...s: ...odj102ltq.dgx maxgroup=0
+2022106194544-I-INFO GC_load_...s: ...odj102ltq.dcx maxgroup=1
+2022106194545-I-INFO GCO_init_obs: odj102ltq is a WAVECAL
+2022106194546-I-INFO -------------- Generic Conversion Completed: odj102ltq -------------
+2022106194546-I-INFO -------------- Generic Conversion Started: odj102010:odj102luq -------------
+2018014120807-I-INFO -------------- Data Partitioning Started: odj102luq ------------
+2018014120807-I-INFO Partitioning from POD file: lz_496a_032_0000022570
+2018014120807-I-INFO OSF_PROCESSING: for odj102luq
+2018014120807-I-INFO DP_dan_present:  DAN file found- will archive pod and dan files
+2018014120807-I-INFO DPI_task::DP_close_oldobs:  SDF lines = 4347, expected pkts = 4348 (single readout), total pkts = 4348
+2018014120807-I-INFO DPI_task::DP_close_oldobs:  4347 Science packets, 1 Engineering (ULX) packets, 0 Bad pkts
+2018014120807-I-INFO DP_close_files:  ...odj102luq.pkx was closed
+2018014120807-I-INFO DP_close_files:  ...odj102luq.bdx was closed
+2018014120807-I-INFO DP_close_files:  ...odj102luq.ulx was closed
+2018014120807-I-INFO DP_close_files:  ...odj102luq.pki was closed
+2018014120807-I-INFO DP_close_files:  ...odj102luq.uli was closed
+2018014120807-I-INFO DPI_task::DP_close_oldobs:  Copied ...odj102lwq.shx to ...odj102luq.shx
+2018014120807-I-INFO DPI_task::DP_close_oldobs:  -------------- Data Partitioning Ended:   odj102luq ------------
+2022106194531-I-INFO ss_SupportSchedule:  -------------- Support Schedule Started: odj102luq ------------
+2022106194535-I-INFO ss_SupportSchedule:  -------------- Support Schedule Completed: odj102luq ------------
+2022106194540-I-INFO dv_DataValidation:  -------------- Data Validation Started: odj102luq ------------
+2022106194540-I-INFO dv_Instrument::assign_first_key: from qolink_sms.start_time= 2018.014:08:31:01
+2022106194540-I-INFO dv_Instrument::assign_first_key: assigned first_keys for 2018.014:08:31:01 using yurintab date: 2016.312:00:00:00
+2022106194540-I-INFO dv_STIS::compare:  Mismatched weight (0) was lower than threshold (55)
+2022106194540-I-INFO dv_DataValidation:  -------------- Data Validation Completed: odj102luq ------------
+2022106194541-I-INFO ----------- World Coordinate System Started: odj102luq ---------
+2022106194542-I-INFO ----------- World Coordinate System Ended:   odj102luq ---------
+2022106194546-I-INFO GC_load_...s: ...odj102luq.dvx maxgroup=1
+2022106194546-I-INFO GC_load_...s: ...odj102luq.dgx maxgroup=0
+2022106194546-I-INFO GC_load_...s: ...odj102luq.dcx maxgroup=1
+2022106194547-I-INFO -------------- Generic Conversion Completed: odj102luq -------------
+2022106194547-W-WARNING Unable to find FITS file ...odj102010_tag.fits
+2022106194547-I-INFO GCO_STIS: -------------- Generic Conversion Completed: odj102010 ------------- 
+2022106194547-I-INFO gc_GenericConversion:  -------------- Generic Conversion Completed: odj102010 ------------
+2022106194550-I-INFO-exposure_times-Start ------ Exposure Times Updater for odj102010 ------
+2022106194550-I-INFO-exposure_times-UPDATE_EXPOSURE_TIMES is False. No update necessary.
+2022106194550-I-INFO-exposure_times-  End ------ Exposure Times Updater Nothing to do for odj102010 ------
+2022108110907 INFO src=ac_xxx_OWL.run_task fsn=odj102010 msg="-------------- After Calibration Started for   odj102010 --------------"
+2022108110908 INFO src=ac_xxx_OWL-hst_missionquery.__init__ msg="HST_Mission_db connection to ... ..."
+2022108110908 INFO src=ac_xxx_OWL-HstScienceDataset.__init__ fsn=odj102010 msg="Opening connection to ..., ..."
+2022108110908 INFO src=ac_xxx_OWL-HstScienceDataset.determine_collected_members fsn=odj102010 msg="3 rows found for association odj102010"
+2022108110908 INFO src=ac_xxx_OWL-hst_missionquery.get_proposal_id fsn=odj102ltq msg="returning 15168 for odj102ltq"
+2022108110908 INFO src=ac_xxx_OWL-HstScienceDataset.__init__ fsn=odj102010 msg="HstScienceDataset(archive_product='odj102010', archive_product_type='PRODUCT', dataset_type='asn', hst_db=<hst_missionquery.HST_Mission_db object at 0x2b7df2436cd0>, instrument='sti', ipppssoot='odj102010', log=<Logfile.Logfile object at 0x2b7df2436490>, product_exposures={'odj102ltq': 'AUTO-WAVECAL', 'odj102luq': 'SCIENCE'}, proposal_id='15168', subproducts={})"
+2022108110908 INFO src=ac_xxx_OWL.update_quality_...s fsn=odj102010 msg="No pdq_summary_update records found for odj102010."
+2022108110908 INFO src=ac_xxx_OWL.run_task fsn=odj102010 msg="-------------- After Calibration Completed for odj102010 --------------"
