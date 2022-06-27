@@ -1,0 +1,227 @@
+2022106193406-I-INFO gc_GenericConversion:  -------------- Generic Conversion Started: odgxt9010 ------------
+2022106193406-I-INFO GCO_STIS: Starting...
+2022106193406-I-INFO GCO_poll_status: ===================================================================
+2022106193406-I-INFO GCO_poll_status: -------------- Generic Conversion Processing: odgxt9010 ------------- 
+2022106193406-I-INFO -------------- Generic Conversion Started: odgxt9010:odgxt9rdq -------------
+2020079231059-I-INFO -------------- Data Partitioning Started: odgxt9rdq ------------
+2020079231059-I-INFO Partitioning from POD file: lz_4926_160_0000106407
+2020079231059-I-INFO OSF_PROCESSING: for odgxt9rdq
+2020079231059-I-INFO DP_dan_present:  DAN file found- will archive pod and dan files
+2020079231059-I-INFO DPI_task::DP_close_oldobs:  SDF lines = 1087, expected pkts = 1088 (single readout), total pkts = 1088
+2020079231059-I-INFO DPI_task::DP_close_oldobs:  1087 Science packets, 1 Engineering (ULX) packets, 0 Bad pkts
+2020079231059-I-INFO DP_close_files:  ...odgxt9rdq.pkx was closed
+2020079231059-I-INFO DP_close_files:  ...odgxt9rdq.bdx was closed
+2020079231059-I-INFO DP_close_files:  ...odgxt9rdq.ulx was closed
+2020079231059-I-INFO DP_close_files:  ...odgxt9rdq.pki was closed
+2020079231059-I-INFO DP_close_files:  ...odgxt9rdq.uli was closed
+2020079231059-I-INFO DPI_task::DP_close_oldobs:  Copied ...odgxt9req.shx to ...odgxt9rdq.shx
+2020079231059-I-INFO DPI_task::DP_close_oldobs:  -------------- Data Partitioning Ended:   odgxt9rdq ------------
+2022106193350-I-INFO ss_SupportSchedule:  -------------- Support Schedule Started: odgxt9rdq ------------
+2022106193354-I-INFO ss_SupportSchedule:  -------------- Support Schedule Completed: odgxt9rdq ------------
+2022106193403-I-INFO dv_DataValidation:  -------------- Data Validation Started: odgxt9rdq ------------
+2022106193403-I-INFO dv_Instrument::assign_first_key: from qolink_sms.start_time= 2020.079:13:21:05
+2022106193403-I-INFO dv_Instrument::assign_first_key: assigned first_keys for 2020.079:13:21:05 using yurintab date: 2018.249:22:15:00
+2022106193403-I-INFO dv_STIS::compare:  Mismatched weight (0) was lower than threshold (55)
+2022106193403-I-INFO dv_DataValidation:  -------------- Data Validation Completed: odgxt9rdq ------------
+2022106193404-I-INFO ----------- World Coordinate System Started: odgxt9rdq ---------
+2022106193405-I-INFO ----------- World Coordinate System Ended:   odgxt9rdq ---------
+2022106193406-I-INFO GC_load_...s: ...odgxt9rdq.dvx maxgroup=1
+2022106193406-I-INFO GC_load_...s: ...odgxt9rdq.dgx maxgroup=0
+2022106193406-I-INFO GC_load_...s: ...odgxt9rdq.dcx maxgroup=1
+2022106193407-I-INFO GCO_init_obs: odgxt9rdq is a WAVECAL
+2022106193407-I-INFO -------------- Generic Conversion Completed: odgxt9rdq -------------
+2022106193407-I-INFO -------------- Generic Conversion Started: odgxt9010:odgxt9rfq -------------
+2020079231056-I-INFO -------------- Data Partitioning Started: odgxt9rfq ------------
+2020079231056-I-INFO Partitioning from POD file: lz_4928_164_0000106411
+2020079231056-I-INFO OSF_PROCESSING: for odgxt9rfq
+2020079231056-I-INFO DP_dan_present:  DAN file found- will archive pod and dan files
+2020079231056-I-INFO DPI_task::DP_close_oldobs:  SDF lines = 4347, expected pkts = 4348 (single readout), total pkts = 4348
+2020079231056-I-INFO DPI_task::DP_close_oldobs:  4347 Science packets, 1 Engineering (ULX) packets, 0 Bad pkts
+2020079231057-I-INFO DP_close_files:  ...odgxt9rfq.pkx was closed
+2020079231057-I-INFO DP_close_files:  ...odgxt9rfq.bdx was closed
+2020079231057-I-INFO DP_close_files:  ...odgxt9rfq.ulx was closed
+2020079231057-I-INFO DP_close_files:  ...odgxt9rfq.pki was closed
+2020079231057-I-INFO DP_close_files:  ...odgxt9rfq.uli was closed
+2020079231057-I-INFO DPI_task::DP_close_oldobs:  Copied ...odgxt9rgq.shx to ...odgxt9rfq.shx
+2020079231057-I-INFO DPI_task::DP_close_oldobs:  -------------- Data Partitioning Ended:   odgxt9rfq ------------
+2020079231057-I-INFO ...odgxt9rfq.pkx exists and will be APPENDED to.
+2020079231057-I-INFO ...odgxt9rfq.ulx exists and will be APPENDED to.
+2020079231057-I-INFO ...odgxt9rfq.pki exists and will be APPENDED to.
+2020079231057-I-INFO ...odgxt9rfq.uli exists and will be APPENDED to.
+2020079231057-I-INFO ...odgxt9rfq.erx exists and will be APPENDED to.
+2020079231057-I-INFO -------------- Data Partitioning Started: odgxt9rfq ------------
+2020079231057-I-INFO Partitioning from POD file: lz_492b_158_0000106417
+2020079231057-I-INFO DP_dan_present:  DAN file found- will archive pod and dan files
+2020079231057-I-INFO DPI_task::DP_close_oldobs:  SDF lines = 8693, expected pkts = 8694 (single readout), total pkts = 8694
+2020079231057-I-INFO DPI_task::DP_close_oldobs:  8693 Science packets, 1 Engineering (ULX) packets, 0 Bad pkts
+2020079231057-I-INFO DP_close_files:  ...odgxt9rfq.pkx was closed
+2020079231057-I-INFO DP_close_files:  ...odgxt9rfq.bdx was closed
+2020079231057-I-INFO DP_close_files:  ...odgxt9rfq.ulx was closed
+2020079231057-I-INFO DP_close_files:  ...odgxt9rfq.pki was closed
+2020079231057-I-INFO DP_close_files:  ...odgxt9rfq.uli was closed
+2020079231057-I-INFO DPI_task::DP_close_oldobs:  Copied ...odgxt9rgq.shx to ...odgxt9rfq.shx
+2020079231057-I-INFO DPI_task::DP_close_oldobs:  -------------- Data Partitioning Ended:   odgxt9rfq ------------
+2020079231058-I-INFO ...odgxt9rfq.pkx exists and will be APPENDED to.
+2020079231058-I-INFO ...odgxt9rfq.ulx exists and will be APPENDED to.
+2020079231058-I-INFO ...odgxt9rfq.pki exists and will be APPENDED to.
+2020079231058-I-INFO ...odgxt9rfq.uli exists and will be APPENDED to.
+2020079231058-I-INFO ...odgxt9rfq.erx exists and will be APPENDED to.
+2020079231058-I-INFO -------------- Data Partitioning Started: odgxt9rfq ------------
+2020079231058-I-INFO Partitioning from POD file: lz_4927_164_0000106409
+2020079231058-I-INFO DP_dan_present:  DAN file found- will archive pod and dan files
+2020079231058-I-INFO DPI_task::DP_close_oldobs:  SDF lines = 4347, expected pkts = 4348 (single readout), total pkts = 4348
+2020079231058-I-INFO DPI_task::DP_close_oldobs:  4347 Science packets, 1 Engineering (ULX) packets, 0 Bad pkts
+2020079231058-I-INFO DP_close_files:  ...odgxt9rfq.pkx was closed
+2020079231058-I-INFO DP_close_files:  ...odgxt9rfq.bdx was closed
+2020079231058-I-INFO DP_close_files:  ...odgxt9rfq.ulx was closed
+2020079231058-I-INFO DP_close_files:  ...odgxt9rfq.pki was closed
+2020079231058-I-INFO DP_close_files:  ...odgxt9rfq.uli was closed
+2020079231058-I-INFO DPI_task::DP_close_oldobs:  Copied ...odgxt9rgq.shx to ...odgxt9rfq.shx
+2020079231058-I-INFO DPI_task::DP_close_oldobs:  -------------- Data Partitioning Ended:   odgxt9rfq ------------
+2020079231100-I-INFO ...odgxt9rfq.pkx exists and will be APPENDED to.
+2020079231100-I-INFO ...odgxt9rfq.ulx exists and will be APPENDED to.
+2020079231100-I-INFO ...odgxt9rfq.pki exists and will be APPENDED to.
+2020079231100-I-INFO ...odgxt9rfq.uli exists and will be APPENDED to.
+2020079231100-I-INFO ...odgxt9rfq.erx exists and will be APPENDED to.
+2020079231100-I-INFO -------------- Data Partitioning Started: odgxt9rfq ------------
+2020079231100-I-INFO Partitioning from POD file: lz_4929_162_0000106413
+2020079231100-I-INFO DP_dan_present:  DAN file found- will archive pod and dan files
+2020079231100-I-INFO DPI_task::DP_close_oldobs:  SDF lines = 4347, expected pkts = 4348 (single readout), total pkts = 4348
+2020079231100-I-INFO DPI_task::DP_close_oldobs:  4347 Science packets, 1 Engineering (ULX) packets, 0 Bad pkts
+2020079231100-I-INFO DP_close_files:  ...odgxt9rfq.pkx was closed
+2020079231100-I-INFO DP_close_files:  ...odgxt9rfq.bdx was closed
+2020079231100-I-INFO DP_close_files:  ...odgxt9rfq.ulx was closed
+2020079231100-I-INFO DP_close_files:  ...odgxt9rfq.pki was closed
+2020079231100-I-INFO DP_close_files:  ...odgxt9rfq.uli was closed
+2020079231100-I-INFO DPI_task::DP_close_oldobs:  Copied ...odgxt9rgq.shx to ...odgxt9rfq.shx
+2020079231100-I-INFO DPI_task::DP_close_oldobs:  -------------- Data Partitioning Ended:   odgxt9rfq ------------
+2020079231100-I-INFO ...odgxt9rfq.pkx exists and will be APPENDED to.
+2020079231100-I-INFO ...odgxt9rfq.ulx exists and will be APPENDED to.
+2020079231100-I-INFO ...odgxt9rfq.pki exists and will be APPENDED to.
+2020079231100-I-INFO ...odgxt9rfq.uli exists and will be APPENDED to.
+2020079231100-I-INFO ...odgxt9rfq.erx exists and will be APPENDED to.
+2020079231100-I-INFO -------------- Data Partitioning Started: odgxt9rfq ------------
+2020079231100-I-INFO Partitioning from POD file: lz_492a_163_0000106415
+2020079231100-I-INFO DP_dan_present:  DAN file found- will archive pod and dan files
+2020079231100-I-INFO DPI_task::DP_close_oldobs:  SDF lines = 4347, expected pkts = 4348 (single readout), total pkts = 4348
+2020079231100-I-INFO DPI_task::DP_close_oldobs:  4347 Science packets, 1 Engineering (ULX) packets, 0 Bad pkts
+2020079231101-I-INFO DP_close_files:  ...odgxt9rfq.pkx was closed
+2020079231101-I-INFO DP_close_files:  ...odgxt9rfq.bdx was closed
+2020079231101-I-INFO DP_close_files:  ...odgxt9rfq.ulx was closed
+2020079231101-I-INFO DP_close_files:  ...odgxt9rfq.pki was closed
+2020079231101-I-INFO DP_close_files:  ...odgxt9rfq.uli was closed
+2020079231101-I-INFO DPI_task::DP_close_oldobs:  Copied ...odgxt9rgq.shx to ...odgxt9rfq.shx
+2020079231101-I-INFO DPI_task::DP_close_oldobs:  -------------- Data Partitioning Ended:   odgxt9rfq ------------
+2022106193354-I-INFO ss_SupportSchedule:  -------------- Support Schedule Started: odgxt9rfq ------------
+2022106193358-I-INFO ss_SupportSchedule:  -------------- Support Schedule Completed: odgxt9rfq ------------
+2022106193403-I-INFO dv_DataValidation:  -------------- Data Validation Started: odgxt9rfq ------------
+2022106193403-I-INFO dv_Instrument::assign_first_key: from qolink_sms.start_time= 2020.079:13:23:24
+2022106193403-I-INFO dv_Instrument::assign_first_key: assigned first_keys for 2020.079:13:23:24 using yurintab date: 2018.249:22:15:00
+2022106193403-I-INFO dv_STIS::compare:  Mismatched weight (0) was lower than threshold (55)
+2022106193404-I-INFO dv_DataValidation:  -------------- Data Validation Completed: odgxt9rfq ------------
+2022106193405-I-INFO ----------- World Coordinate System Started: odgxt9rfq ---------
+2022106193405-I-INFO ----------- World Coordinate System Ended:   odgxt9rfq ---------
+2022106193408-I-INFO GC_load_...s: ...odgxt9rfq.dvx maxgroup=5
+2022106193408-I-INFO GC_load_...s: ...odgxt9rfq.dgx maxgroup=0
+2022106193408-I-INFO GC_load_...s: ...odgxt9rfq.dcx maxgroup=5
+2022106193409-I-INFO GCO_decode_ttag: Found first coarsetime in dump at 0: 8135E356
+2022106193409-I-INFO GCO_decode_ttag: First fill detected at 804873
+2022106193409-I-INFO  Dump 0, First=8135E356  Last=81361415  LoneFine=0
+2022106193409-I-INFO GCO_decode_ttag: Found first coarsetime in dump at 48: 81361416
+2022106193409-I-INFO GCO_decode_ttag: First fill detected at 829450
+2022106193409-I-INFO  Dump 1, First=81361416  Last=813644F5  LoneFine=48
+2022106193409-I-INFO GCO_decode_ttag: Found first coarsetime in dump at 41: 813644F6
+2022106193409-I-INFO GCO_decode_ttag: First fill detected at 839685
+2022106193409-I-INFO  Dump 2, First=813644F6  Last=813675B5  LoneFine=41
+2022106193409-I-INFO GCO_decode_ttag: Found first coarsetime in dump at 19: 813675B6
+2022106193409-I-INFO GCO_good_coarseTime: Bad Coarsetime: 7FC83172 maxCtime=1372A7C
+2022106193409-I-INFO GCO_decode_ttag: Bad Coarsetime: FFC83172 at 175364
+2022106193409-I-INFO GCO_decode_ttag: First fill detected at 821256
+2022106193409-I-INFO  Dump 3, First=813675B6  Last=8136A698  LoneFine=19
+2022106193409-I-INFO GCO_decode_ttag: Found first coarsetime in dump at 56: 8136A699
+2022106193409-I-INFO GCO_decode_ttag: First fill detected at 1581251
+2022106193409-I-INFO  Dump 4, First=8136A699  Last=813705E3  LoneFine=56
+2022106193409-I-INFO Scan of 5 dumps is complete
+2022106193409-I-INFO FITS file opened: ...odgxt9010_tag.fits
+2022106193409-I-INFO PRIMARY ...s of ttag file written
+2022106193409-I-INFO FITS ttag file opened successfully
+2022106193409-I-INFO FITS ttag table 1 opened successfully
+2022106193410-I-INFO write_ttag Begin      End  Bad Fine Fine Buff      Total
+2022106193410-I-INFO write_ttag  Time     Time  Crs Roll Drop Full    Photons
+2022106193410-I-INFO GCO_parse_ttag: Goodtime added: 35E356B5 
+2022106193410-I-INFO Doppler shift change at 0.022625 to -1
+2022106193410-I-INFO Doppler shift change at 396.840500 to 0
+2022106193410-I-INFO GCO_write_ttag: Dump  0     0.00   399.33    0   55    5    0     792392
+2022106193410-I-INFO GCO_write_ttag: Dump  1   399.36   799.71    0   61    2    0     816938
+2022106193411-I-INFO GCO_write_ttag: Dump  2   799.74  1199.07    0   57    3    0     827205
+2022106193411-I-INFO GCO_good_coarseTime: Bad Coarsetime: 7FC83172 maxCtime=1372A7C
+2022106193411-I-INFO Doppler shift change at 1351.840375 to 1
+2022106193411-I-INFO GCO_write_ttag: Dump  3  1199.10  1599.55    1   46    4    0     808740
+2022106193412-I-INFO GCO_write_ttag: Dump  4  1599.58  2380.19    0   86    9    0    1556856
+2022106193412-I-INFO FITS ttag file written successfully
+2022106193412-I-INFO FITS goodtimes table opened successfully
+2022106193412-I-INFO GTI interval: 0.022625  2380.222000
+2022106193412-I-INFO sum of goodtime intervals = 2380.199375 1
+2022106193412-I-INFO FITS goodtimes table written successfully
+2022106193412-I-INFO ------------------
+2022106193412-I-INFO total photon count = 4802131
+2022106193412-I-INFO fill count         = 5
+2022106193412-I-INFO events ignored     = 0
+2022106193412-I-INFO ------------------
+2022106193412-I-INFO image photons      = 4801041
+2022106193412-I-INFO doppler shifted    = 1090
+2022106193412-I-INFO pixel overflow     = 0
+2022106193412-I-INFO ------------------
+2022106193412-I-INFO interrupt count    = 0
+2022106193412-I-INFO goodtimes count    = 1
+2022106193412-I-INFO ------------------
+2022106193412-I-INFO corrupt finetimes  = 1
+2022106193412-I-INFO finetime rollovers = 305
+2022106193412-I-INFO finetime dropbacks = 23
+2022106193412-I-INFO buffer full flags  = 0
+2022106193412-I-INFO negative time steps= 0
+2022106193412-I-INFO ------------------
+2022106193412-I-INFO Extension 1 : 4802131 4
+2022106193412-I-INFO FITS ttag image written successfully
+2022106193412-I-INFO -------------- Generic Conversion Completed: odgxt9rfq -------------
+2022106193412-I-INFO -------------- Generic Conversion Started: odgxt9010:odgxt9rhq -------------
+2020079231058-I-INFO -------------- Data Partitioning Started: odgxt9rhq ------------
+2020079231058-I-INFO Partitioning from POD file: lz_492c_155_0000106419
+2020079231058-I-INFO OSF_PROCESSING: for odgxt9rhq
+2020079231058-I-INFO DP_dan_present:  DAN file found- will archive pod and dan files
+2020079231058-I-INFO DPI_task::DP_close_oldobs:  SDF lines = 1087, expected pkts = 1088 (single readout), total pkts = 1088
+2020079231058-I-INFO DPI_task::DP_close_oldobs:  1087 Science packets, 1 Engineering (ULX) packets, 0 Bad pkts
+2020079231058-I-INFO DP_close_files:  ...odgxt9rhq.pkx was closed
+2020079231058-I-INFO DP_close_files:  ...odgxt9rhq.bdx was closed
+2020079231058-I-INFO DP_close_files:  ...odgxt9rhq.ulx was closed
+2020079231058-I-INFO DP_close_files:  ...odgxt9rhq.pki was closed
+2020079231058-I-INFO DP_close_files:  ...odgxt9rhq.uli was closed
+2020079231058-I-INFO DPI_task::DP_close_oldobs:  Copied ...odgxt9riq.shx to ...odgxt9rhq.shx
+2020079231058-I-INFO DPI_task::DP_close_oldobs:  -------------- Data Partitioning Ended:   odgxt9rhq ------------
+2022106193358-I-INFO ss_SupportSchedule:  -------------- Support Schedule Started: odgxt9rhq ------------
+2022106193403-I-INFO ss_SupportSchedule:  -------------- Support Schedule Completed: odgxt9rhq ------------
+2022106193404-I-INFO dv_DataValidation:  -------------- Data Validation Started: odgxt9rhq ------------
+2022106193404-I-INFO dv_Instrument::assign_first_key: from qolink_sms.start_time= 2020.079:14:06:31
+2022106193404-I-INFO dv_Instrument::assign_first_key: assigned first_keys for 2020.079:14:06:31 using yurintab date: 2018.249:22:15:00
+2022106193404-I-INFO dv_STIS::compare:  Mismatched weight (0) was lower than threshold (55)
+2022106193404-I-INFO dv_DataValidation:  -------------- Data Validation Completed: odgxt9rhq ------------
+2022106193405-I-INFO ----------- World Coordinate System Started: odgxt9rhq ---------
+2022106193405-I-INFO ----------- World Coordinate System Ended:   odgxt9rhq ---------
+2022106193412-I-INFO GC_load_...s: ...odgxt9rhq.dvx maxgroup=1
+2022106193412-I-INFO GC_load_...s: ...odgxt9rhq.dgx maxgroup=0
+2022106193412-I-INFO GC_load_...s: ...odgxt9rhq.dcx maxgroup=1
+2022106193412-I-INFO GCO_init_obs: odgxt9rhq is a WAVECAL
+2022106193413-I-INFO -------------- Generic Conversion Completed: odgxt9rhq -------------
+2022106193413-I-INFO GCO_STIS: -------------- Generic Conversion Completed: odgxt9010 ------------- 
+2022106193413-I-INFO gc_GenericConversion:  -------------- Generic Conversion Completed: odgxt9010 ------------
+2022106193414-I-INFO-exposure_times-Start ------ Exposure Times Updater for odgxt9010 ------
+2022106193414-I-INFO-exposure_times-UPDATE_EXPOSURE_TIMES is False. No update necessary.
+2022106193414-I-INFO-exposure_times-  End ------ Exposure Times Updater Nothing to do for odgxt9010 ------
+2022108110900 INFO src=ac_xxx_OWL.run_task fsn=odgxt9010 msg="-------------- After Calibration Started for   odgxt9010 --------------"
+2022108110901 INFO src=ac_xxx_OWL-hst_missionquery.__init__ msg="HST_Mission_db connection to ... ..."
+2022108110901 INFO src=ac_xxx_OWL-HstScienceDataset.__init__ fsn=odgxt9010 msg="Opening connection to ..., ..."
+2022108110901 INFO src=ac_xxx_OWL-HstScienceDataset.determine_collected_members fsn=odgxt9010 msg="4 rows found for association odgxt9010"
+2022108110901 INFO src=ac_xxx_OWL-hst_missionquery.get_proposal_id fsn=odgxt9rdq msg="returning 15070 for odgxt9rdq"
+2022108110901 INFO src=ac_xxx_OWL-HstScienceDataset.__init__ fsn=odgxt9010 msg="HstScienceDataset(archive_product='odgxt9010', archive_product_type='PRODUCT', dataset_type='asn', hst_db=<hst_missionquery.HST_Mission_db object at 0x2b7777c0acd0>, instrument='sti', ipppssoot='odgxt9010', log=<Logfile.Logfile object at 0x2b7777c0a490>, product_exposures={'odgxt9rdq': 'AUTO-WAVECAL', 'odgxt9rfq': 'SCIENCE', 'odgxt9rhq': 'AUTO-WAVECAL'}, proposal_id='15070', subproducts={})"
+2022108110901 INFO src=ac_xxx_OWL.update_quality_...s fsn=odgxt9010 msg="No pdq_summary_update records found for odgxt9010."
+2022108110901 INFO src=ac_xxx_OWL.run_task fsn=odgxt9010 msg="-------------- After Calibration Completed for odgxt9010 --------------"
