@@ -14739,9 +14739,11 @@ For more information on STIS data analysis and operations, see the <a href="http
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>The following tasks in the stistools package can be run with TEAL:
-   basic2d      calstis     ocrreject     wavecal        x1d          x2d
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>/Users/kding/miniconda3/envs/stis/lib/python3.7/site-packages/stsci/tools/nmpfit.py:8: UserWarning: NMPFIT is deprecated - stsci.tools v 3.5 is the last version to contain it.
+  warnings.warn(&#34;NMPFIT is deprecated - stsci.tools v 3.5 is the last version to contain it.&#34;)
+/Users/kding/miniconda3/envs/stis/lib/python3.7/site-packages/stsci/tools/gfit.py:18: UserWarning: GFIT is deprecated - stsci.tools v 3.4.12 is the last version to contain it.Use astropy.modeling instead.
+  warnings.warn(&#34;GFIT is deprecated - stsci.tools v 3.4.12 is the last version to contain it.&#34;
 </pre>
 </div>
 </div>
@@ -14752,11 +14754,9 @@ For more information on STIS data analysis and operations, see the <a href="http
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>/Users/kding/miniconda3/envs/stis/lib/python3.7/site-packages/stsci/tools/nmpfit.py:8: UserWarning: NMPFIT is deprecated - stsci.tools v 3.5 is the last version to contain it.
-  warnings.warn(&#34;NMPFIT is deprecated - stsci.tools v 3.5 is the last version to contain it.&#34;)
-/Users/kding/miniconda3/envs/stis/lib/python3.7/site-packages/stsci/tools/gfit.py:18: UserWarning: GFIT is deprecated - stsci.tools v 3.4.12 is the last version to contain it.Use astropy.modeling instead.
-  warnings.warn(&#34;GFIT is deprecated - stsci.tools v 3.4.12 is the last version to contain it.&#34;
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>The following tasks in the stistools package can be run with TEAL:
+   basic2d      calstis     ocrreject     wavecal        x1d          x2d
 </pre>
 </div>
 </div>
@@ -14831,10 +14831,10 @@ For more information on STIS data analysis and operations, see the <a href="http
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>INFO: Found cached file data/mastDownload/HST/odgxt9010/odgxt9010_raw.fits with expected size 16819200. [astroquery.query]
-INFO: Found cached file data/mastDownload/HST/odgxt9010/odgxt9010_x1d.fits with expected size 77760. [astroquery.query]
-INFO: Found cached file data/mastDownload/HST/odgxt9010/odgxt9010_x2d.fits with expected size 14474880. [astroquery.query]
-INFO: Found cached file data/mastDownload/HST/odgxt9010/odgxt9010_flt.fits with expected size 10535040. [astroquery.query]
+<pre>Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/product/odgxt9010_raw.fits to data/mastDownload/HST/odgxt9010/odgxt9010_raw.fits ... [Done]
+Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/product/odgxt9010_x1d.fits to data/mastDownload/HST/odgxt9010/odgxt9010_x1d.fits ... [Done]
+Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/product/odgxt9010_x2d.fits to data/mastDownload/HST/odgxt9010/odgxt9010_x2d.fits ... [Done]
+Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/product/odgxt9010_flt.fits to data/mastDownload/HST/odgxt9010/odgxt9010_flt.fits ... [Done]
 </pre>
 </div>
 </div>
@@ -14848,7 +14848,7 @@ INFO: Found cached file data/mastDownload/HST/odgxt9010/odgxt9010_flt.fits with 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <i>Table length=4</i>
-<table id="table140250021822672" class="table-striped table-bordered table-condensed">
+<table id="table140616303928272" class="table-striped table-bordered table-condensed">
 <thead><tr><th>Local Path</th><th>Status</th><th>Message</th><th>URL</th></tr></thead>
 <thead><tr><th>str50</th><th>str8</th><th>object</th><th>object</th></tr></thead>
 <tr><td>data/mastDownload/HST/odgxt9010/odgxt9010_raw.fits</td><td>COMPLETE</td><td>None</td><td>None</td></tr>
@@ -15140,7 +15140,7 @@ targname: V-T-CRA
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <i>Table masked=True length=1</i>
-<table id="table140249756782544" class="table-striped table-bordered table-condensed">
+<table id="table140617384214608" class="table-striped table-bordered table-condensed">
 <thead><tr><th>SPORDER</th><th>NELEM</th><th>WAVELENGTH [1024]</th><th>GROSS [1024]</th><th>BACKGROUND [1024]</th><th>NET [1024]</th><th>FLUX [1024]</th><th>ERROR [1024]</th><th>NET_ERROR [1024]</th><th>DQ [1024]</th><th>A2CENTER</th><th>EXTRSIZE</th><th>MAXSRCH</th><th>BK1SIZE</th><th>BK2SIZE</th><th>BK1OFFST</th><th>BK2OFFST</th><th>EXTRLOCY [1024]</th><th>OFFSET</th></tr></thead>
 <thead><tr><th></th><th></th><th>Angstroms</th><th>Counts/s</th><th>Counts/s</th><th>Counts/s</th><th>erg / (Angstrom cm2 s)</th><th>erg / (Angstrom cm2 s)</th><th>Counts/s</th><th></th><th>pix</th><th>pix</th><th>pix</th><th>pix</th><th>pix</th><th>pix</th><th>pix</th><th>pix</th><th>pix</th></tr></thead>
 <thead><tr><th>int16</th><th>int16</th><th>float64</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th><th>int16</th><th>float32</th><th>float32</th><th>int16</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th></tr></thead>
@@ -16120,7 +16120,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.image.AxesImage at 0x7f8e51545910&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7fe3c27f1fd0&gt;</pre>
 </div>
 
 </div>
@@ -16203,7 +16203,7 @@ jp-needs-light-background
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.image.AxesImage at 0x7f8e91ffe0d0&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7fe3c2333310&gt;</pre>
 </div>
 
 </div>
@@ -16281,16 +16281,16 @@ First collect the _tag data:</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>INFO: Found cached file data/mastDownload/HST/odgxt9010/odgxt9010_jif.fits with expected size 34560. [astroquery.query]
-INFO: Found cached file data/mastDownload/HST/odgxt9010/odgxt9010_jit.fits with expected size 103680. [astroquery.query]
-INFO: Found cached file data/mastDownload/HST/odgxt9010/odgxt9010_jwf.fits with expected size 25920. [astroquery.query]
-INFO: Found cached file data/mastDownload/HST/odgxt9010/odgxt9010_jwt.fits with expected size 20160. [astroquery.query]
-INFO: Found cached file data/mastDownload/HST/odgxt9010/odgxt9010_spt.fits with expected size 241920. [astroquery.query]
-INFO: Found cached file data/mastDownload/HST/odgxt9010/odgxt9010_tag.fits with expected size 48064320. [astroquery.query]
-INFO: Found cached file data/mastDownload/HST/odgxt9010/odgxt9010_trl.fits with expected size 37440. [astroquery.query]
-INFO: Found cached file data/mastDownload/HST/odgxt9010/odgxt9010_wav.fits with expected size 4262400. [astroquery.query]
-INFO: Found cached file data/mastDownload/HST/odgxt9010/odgxt9010_wsp.fits with expected size 112320. [astroquery.query]
-INFO: Found cached file data/mastDownload/HST/odgxt9010/odgxt9010_asn.fits with expected size 11520. [astroquery.query]
+<pre>Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/product/odgxt9010_jif.fits to data/mastDownload/HST/odgxt9010/odgxt9010_jif.fits ... [Done]
+Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/product/odgxt9010_jit.fits to data/mastDownload/HST/odgxt9010/odgxt9010_jit.fits ... [Done]
+Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/product/odgxt9010_jwf.fits to data/mastDownload/HST/odgxt9010/odgxt9010_jwf.fits ... [Done]
+Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/product/odgxt9010_jwt.fits to data/mastDownload/HST/odgxt9010/odgxt9010_jwt.fits ... [Done]
+Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/product/odgxt9010_spt.fits to data/mastDownload/HST/odgxt9010/odgxt9010_spt.fits ... [Done]
+Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/product/odgxt9010_tag.fits to data/mastDownload/HST/odgxt9010/odgxt9010_tag.fits ... [Done]
+Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/product/odgxt9010_trl.fits to data/mastDownload/HST/odgxt9010/odgxt9010_trl.fits ... [Done]
+Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/product/odgxt9010_wav.fits to data/mastDownload/HST/odgxt9010/odgxt9010_wav.fits ... [Done]
+Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/product/odgxt9010_wsp.fits to data/mastDownload/HST/odgxt9010/odgxt9010_wsp.fits ... [Done]
+Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/product/odgxt9010_asn.fits to data/mastDownload/HST/odgxt9010/odgxt9010_asn.fits ... [Done]
 </pre>
 </div>
 </div>
@@ -16304,7 +16304,7 @@ INFO: Found cached file data/mastDownload/HST/odgxt9010/odgxt9010_asn.fits with 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <i>Table length=10</i>
-<table id="table140249481970000" class="table-striped table-bordered table-condensed">
+<table id="table140617114102736" class="table-striped table-bordered table-condensed">
 <thead><tr><th>Local Path</th><th>Status</th><th>Message</th><th>URL</th></tr></thead>
 <thead><tr><th>str50</th><th>str8</th><th>object</th><th>object</th></tr></thead>
 <tr><td>data/mastDownload/HST/odgxt9010/odgxt9010_jif.fits</td><td>COMPLETE</td><td>None</td><td>None</td></tr>
@@ -16654,7 +16654,7 @@ More information: <a href="https://stistools.readthedocs.io/en/latest/inttag.htm
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.image.AxesImage at 0x7f8e618e99d0&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7fe409502d10&gt;</pre>
 </div>
 
 </div>
