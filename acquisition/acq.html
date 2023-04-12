@@ -13215,7 +13215,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">acq</span><span class="p">(</span><span class="n">obs_id</span><span class="p">):</span>
-    <span class="c1"># Search target objscy by obs_id</span>
+    <span class="c1"># Search target object by obs_id</span>
     <span class="n">target</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span><span class="n">obs_id</span><span class="o">=</span><span class="n">obs_id</span><span class="p">)</span>
     <span class="c1"># get a list of files assiciated with that target</span>
     <span class="n">acq_list</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">get_product_list</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
@@ -13406,7 +13406,7 @@ and fine stages agree within 25% and the fine slews were less than
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Guide-Stars-not-Acquired">Guide Stars not Acquired<a class="anchor-link" href="#Guide-Stars-not-Acquired">&#182;</a></h3><p>The TakeData Flag is an onboard pointing control system flag which, when ON, indicates that the spacecraft is ready for an observation and that the guide star tracking performance is nomial. If the TDF is down, exposures are not performed until TDF comes up.</p>
+<h3 id="Guide-Stars-not-Acquired">Guide Stars not Acquired<a class="anchor-link" href="#Guide-Stars-not-Acquired">&#182;</a></h3><p>The Take Data Flag is an onboard pointing control system flag which, when ON, indicates that the spacecraft is ready for an observation and that the guide star tracking performance is nomial. If the TDF is down, exposures are not performed until TDF comes up.</p>
 <p>If the guide stars are not acquired during acquisition, the TDF will be turned down and no exposures will be performed. Therefore all acquisition images will be dark.</p>
 <p>In this failure case, as telemetry indicates, the TDF is down at the start and no exposure was performed. Thus there is not a clear bright source in the Before Coarse Slew and Before Fine Slew images. Usually,exposure failures can also cause other issues such as fine slew larger than 4 pixels or Ratio of Flux in Max Checkbox in Fine &amp; Coarse Stages Greater than 25%, because the tastis algorithm cannot pick up the proper bright source in the image to perform the following steps of acquisition.</p>
 
