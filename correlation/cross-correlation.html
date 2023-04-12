@@ -13207,7 +13207,7 @@ div#notebook {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># remove downlaod directory if it already exists</span>
 <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"./mastDownload"</span><span class="p">):</span>
     <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s2">"./mastDownload"</span><span class="p">)</span>
-<span class="c1"># Search target objscy by obs_id</span>
+<span class="c1"># Search target object by obs_id</span>
 <span class="n">target</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span><span class="n">obs_id</span><span class="o">=</span><span class="p">[</span><span class="s2">"odj101050"</span><span class="p">,</span><span class="s2">"Odj101060"</span><span class="p">])</span>
 <span class="c1"># get a list of files assiciated with that target</span>
 <span class="n">target_list</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">get_product_list</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
