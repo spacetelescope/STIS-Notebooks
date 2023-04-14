@@ -13090,7 +13090,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a id=top></a></p>
-<h1 id="Cross-Correlation">Cross-Correlation<a class="anchor-link" href="#Cross-Correlation">&#182;</a></h1>
+<h1 id="Correcting-for-Missing-Wavecals-with-Cross-Correlation">Correcting for Missing Wavecals with Cross-Correlation<a class="anchor-link" href="#Correcting-for-Missing-Wavecals-with-Cross-Correlation">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -13194,7 +13194,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Collect-Data-Set-From-the-MAST-Archive-Using-Astroquery">Collect Data Set From the MAST Archive Using Astroquery<a class="anchor-link" href="#Collect-Data-Set-From-the-MAST-Archive-Using-Astroquery">&#182;</a></h3><p>In this notebook, we need two download to datasets and explore their correlation.</p>
+<h3 id="Collect-Data-Set-From-the-MAST-Archive-Using-Astroquery">Collect Data Set From the MAST Archive Using Astroquery<a class="anchor-link" href="#Collect-Data-Set-From-the-MAST-Archive-Using-Astroquery">&#182;</a></h3><p>In this notebook, we need two download and explore their correlation.</p>
 
 </div>
 </div>
@@ -13250,7 +13250,7 @@ Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/produ
 
 
 <div class="output_html rendered_html output_subarea output_execute_result"><i>Table length=8</i>
-<table id="table140298341301072" class="table-striped table-bordered table-condensed">
+<table id="table140586094218896" class="table-striped table-bordered table-condensed">
 <thead><tr><th>Local Path</th><th>Status</th><th>Message</th><th>URL</th></tr></thead>
 <thead><tr><th>str47</th><th>str8</th><th>object</th><th>object</th></tr></thead>
 <tr><td>./mastDownload/HST/odj101050/odj101050_raw.fits</td><td>COMPLETE</td><td>None</td><td>None</td></tr>
@@ -13313,13 +13313,13 @@ Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/produ
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 *** CALSTIS-0 -- Version 3.4.2 (19-Jan-2018) ***
-Begin    12-Apr-2023 22:29:26 EDT
+Begin    14-Apr-2023 14:20:35 EDT
 
 Input    ./mastDownload/HST/odj101050/odj101050_raw.fits
 Outroot  ./Shifted/odj101050_raw.fits
 
 *** CALSTIS-1 -- Version 3.4.2 (19-Jan-2018) ***
-Begin    12-Apr-2023 22:29:28 EDT
+Begin    14-Apr-2023 14:20:38 EDT
 Input    ./mastDownload/HST/odj101050/odj101050_raw.fits
 Output   ./Shifted/odj101050_flt.fits
 OBSMODE  ACCUM
@@ -13327,7 +13327,7 @@ APERTURE 52X0.2
 OPT_ELEM G140M
 DETECTOR FUV-MAMA
 
-Imset 1  Begin 22:29:28 EDT
+Imset 1  Begin 14:20:39 EDT
 
 DQICORR  PERFORM
 DQITAB   oref$uce15153o_bpx.fits
@@ -13369,27 +13369,27 @@ DOPPCORR applied to DQICORR, DARKCORR, FLATCORR
 
 STATFLAG PERFORM
 STATFLAG COMPLETE
-Imset 1  End 22:29:29 EDT
+Imset 1  End 14:21:10 EDT
 
-End      12-Apr-2023 22:29:29 EDT
+End      14-Apr-2023 14:21:10 EDT
 
 *** CALSTIS-1 complete ***
 
 *** CALSTIS-7 -- Version 3.4.2 (19-Jan-2018) ***
-Begin    12-Apr-2023 22:29:29 EDT
+Begin    14-Apr-2023 14:21:10 EDT
 Input    ./Shifted/odj101050_flt.fits
 Output   ./Shifted/odj101050_x2d.fits
 OBSMODE  ACCUM
 APERTURE 52X0.2
 OPT_ELEM G140M
 DETECTOR FUV-MAMA
-Imset 1  Begin 22:29:29 EDT
+Imset 1  Begin 14:21:18 EDT
 Warning  Wavecal processing has not been performed.
 
 HELCORR  PERFORM
 HELCORR  COMPLETE
 
-Order 1  Begin 22:29:29 EDT
+Order 1  Begin 14:21:19 EDT
 
 X2DCORR  PERFORM
 DISPCORR PERFORM
@@ -13433,15 +13433,15 @@ TDSTAB   DESCRIP =Updated time and temperature sensitivities for all optical ele
 FLUXCORR COMPLETE
 X2DCORR  COMPLETE
 DISPCORR COMPLETE
-Order 1  End 22:29:30 EDT
-Imset 1  End 22:29:30 EDT
+Order 1  End 14:21:21 EDT
+Imset 1  End 14:21:21 EDT
 
-End      12-Apr-2023 22:29:30 EDT
+End      14-Apr-2023 14:21:21 EDT
 
 *** CALSTIS-7 complete ***
 
 *** CALSTIS-6 -- Version 3.4.2 (19-Jan-2018) ***
-Begin    12-Apr-2023 22:29:30 EDT
+Begin    14-Apr-2023 14:21:21 EDT
 
 Warning  Grating-aperture throughput correction table (GACTAB) was not found,
          and no gac corrections will be applied
@@ -13461,9 +13461,9 @@ SPTRCTAB oref$q8l14504o_1dt.fits
 SPTRCTAB PEDIGREE=INFLIGHT 27/02/1997 06/02/1999
 SPTRCTAB DESCRIP =New G140L traces and updated Echelle A2CENTER values
 
-Imset 1  Begin 22:29:30 EDT
+Imset 1  Begin 14:21:21 EDT
          Input read into memory.
-Order 1  Begin 22:29:30 EDT
+Order 1  Begin 14:21:21 EDT
 X1DCORR  PERFORM
 BACKCORR PERFORM
 ******** Calling Slfit ***********BACKCORR COMPLETE
@@ -13504,16 +13504,16 @@ FLUXCORR COMPLETE
 SGEOCORR OMIT
 
          Row 1 written to disk.
-Order 1  End 22:29:31 EDT
+Order 1  End 14:21:22 EDT
 
-Imset 1  End 22:29:31 EDT
+Imset 1  End 14:21:22 EDT
 
 Warning  Keyword `XTRACALG&#39; is being added to header.
-End      12-Apr-2023 22:29:31 EDT
+End      14-Apr-2023 14:21:22 EDT
 
 *** CALSTIS-6 complete ***
 
-End      12-Apr-2023 22:29:31 EDT
+End      14-Apr-2023 14:21:22 EDT
 
 *** CALSTIS-0 complete ***
 </pre>
@@ -13600,7 +13600,7 @@ As seen in the plot, the spectrum is now shifted compared to the pipeline spectr
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Spectrum-Interpolation">Spectrum Interpolation<a class="anchor-link" href="#Spectrum-Interpolation">&#182;</a></h3><p>Since the wavelength range of the pipeline and shifted spectra are different, we interpolate one of the spctra based on the wavelength of the other one so that the two spectra share the same wavelength array. As shown in the plot, the spectrum with "WAVECORR" turned off is systemetically shifted to the right.</p>
+<h3 id="Spectrum-Interpolation">Spectrum Interpolation<a class="anchor-link" href="#Spectrum-Interpolation">&#182;</a></h3><p>Since the wavelength range of the pipeline and shifted spectra are different, we interpolate one of the spectra based on the wavelength of the other one so that the two spectra share the same wavelength array. As shown in the plot, the spectrum with "WAVECORR" turned off is systemetically shifted to the left.</p>
 
 </div>
 </div>
@@ -13721,7 +13721,7 @@ As seen in the plot, the spectrum is now shifted compared to the pipeline spectr
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Masking-out-the-Lyman-alpha-line">Masking out the Lyman-alpha line<a class="anchor-link" href="#Masking-out-the-Lyman-alpha-line">&#182;</a></h3><p>The absorption line at around 1215 Å is from Lyman-alpha, which mostly comes from the atmosphere and so should not shift like the science spectrum. Therefore we need to mask out this region by separating the spectrum into two parts and perform two cross-correlations. There are other airglows lines in the ultraviolet that also does not shift with the science spectrum, including OI line at 1302 Å, OI line at 1305 Å, OI line at 1306 Å, and HI line at 1216 Å. For more information on the Airglow, see: <a href="https://www.stsci.edu/hst/instrumentation/cos/calibration/airglow"><code>AIRGLOW</code></a>.</p>
+<h3 id="Masking-out-the-Lyman-alpha-line">Masking out the Lyman-alpha line<a class="anchor-link" href="#Masking-out-the-Lyman-alpha-line">&#182;</a></h3><p>The absorption line at around 1215 Å is from Hydrogen Lyman-alpha, which mostly comes from the atmosphere and so should not shift like the science spectrum. Therefore we need to mask out this region by separating the spectrum into two parts and perform two cross-correlations. There are other airglows lines in the ultraviolet that also does not shift with the science spectrum, including OI line at 1302 Å, OI line at 1305 Å, OI line at 1306 Å. For more information on the Airglow, see: <a href="https://www.stsci.edu/hst/instrumentation/cos/calibration/airglow"><code>AIRGLOW</code></a>.</p>
 
 </div>
 </div>
@@ -13840,7 +13840,7 @@ As seen in the plot, the spectrum is now shifted compared to the pipeline spectr
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.legend.Legend at 0x7f999079a1d0&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x7fdce279d090&gt;</pre>
 </div>
 
 </div>
@@ -14113,13 +14113,13 @@ As seen in the plot, the spectrum is now shifted compared to the pipeline spectr
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 *** CALSTIS-0 -- Version 3.4.2 (19-Jan-2018) ***
-Begin    12-Apr-2023 22:29:32 EDT
+Begin    14-Apr-2023 14:21:23 EDT
 
 Input    ./mastDownload/HST/odj101050/odj101050_raw.fits
 Outroot  ./Recalibration/odj101050_raw.fits
 
 *** CALSTIS-1 -- Version 3.4.2 (19-Jan-2018) ***
-Begin    12-Apr-2023 22:29:33 EDT
+Begin    14-Apr-2023 14:21:24 EDT
 Input    ./mastDownload/HST/odj101050/odj101050_raw.fits
 Output   ./Recalibration/odj101050_flt.fits
 OBSMODE  ACCUM
@@ -14127,7 +14127,7 @@ APERTURE 52X0.2
 OPT_ELEM G140M
 DETECTOR FUV-MAMA
 
-Imset 1  Begin 22:29:33 EDT
+Imset 1  Begin 14:21:24 EDT
 
 DQICORR  PERFORM
 DQITAB   oref$uce15153o_bpx.fits
@@ -14169,27 +14169,27 @@ DOPPCORR applied to DQICORR, DARKCORR, FLATCORR
 
 STATFLAG PERFORM
 STATFLAG COMPLETE
-Imset 1  End 22:29:34 EDT
+Imset 1  End 14:21:25 EDT
 
-End      12-Apr-2023 22:29:34 EDT
+End      14-Apr-2023 14:21:25 EDT
 
 *** CALSTIS-1 complete ***
 
 *** CALSTIS-7 -- Version 3.4.2 (19-Jan-2018) ***
-Begin    12-Apr-2023 22:29:34 EDT
+Begin    14-Apr-2023 14:21:25 EDT
 Input    ./Recalibration/odj101050_flt.fits
 Output   ./Recalibration/odj101050_x2d.fits
 OBSMODE  ACCUM
 APERTURE 52X0.2
 OPT_ELEM G140M
 DETECTOR FUV-MAMA
-Imset 1  Begin 22:29:35 EDT
+Imset 1  Begin 14:21:27 EDT
 Warning  Wavecal processing has not been performed.
 
 HELCORR  PERFORM
 HELCORR  COMPLETE
 
-Order 1  Begin 22:29:35 EDT
+Order 1  Begin 14:21:27 EDT
 
 X2DCORR  PERFORM
 DISPCORR PERFORM
@@ -14233,15 +14233,15 @@ TDSTAB   DESCRIP =Updated time and temperature sensitivities for all optical ele
 FLUXCORR COMPLETE
 X2DCORR  COMPLETE
 DISPCORR COMPLETE
-Order 1  End 22:29:36 EDT
-Imset 1  End 22:29:36 EDT
+Order 1  End 14:21:28 EDT
+Imset 1  End 14:21:28 EDT
 
-End      12-Apr-2023 22:29:36 EDT
+End      14-Apr-2023 14:21:28 EDT
 
 *** CALSTIS-7 complete ***
 
 *** CALSTIS-6 -- Version 3.4.2 (19-Jan-2018) ***
-Begin    12-Apr-2023 22:29:36 EDT
+Begin    14-Apr-2023 14:21:28 EDT
 
 Warning  Grating-aperture throughput correction table (GACTAB) was not found,
          and no gac corrections will be applied
@@ -14261,9 +14261,9 @@ SPTRCTAB oref$q8l14504o_1dt.fits
 SPTRCTAB PEDIGREE=INFLIGHT 27/02/1997 06/02/1999
 SPTRCTAB DESCRIP =New G140L traces and updated Echelle A2CENTER values
 
-Imset 1  Begin 22:29:36 EDT
+Imset 1  Begin 14:21:29 EDT
          Input read into memory.
-Order 1  Begin 22:29:37 EDT
+Order 1  Begin 14:21:29 EDT
 X1DCORR  PERFORM
 BACKCORR PERFORM
 ******** Calling Slfit ***********BACKCORR COMPLETE
@@ -14304,16 +14304,16 @@ FLUXCORR COMPLETE
 SGEOCORR OMIT
 
          Row 1 written to disk.
-Order 1  End 22:29:37 EDT
+Order 1  End 14:21:30 EDT
 
-Imset 1  End 22:29:37 EDT
+Imset 1  End 14:21:30 EDT
 
 Warning  Keyword `XTRACALG&#39; is being added to header.
-End      12-Apr-2023 22:29:37 EDT
+End      14-Apr-2023 14:21:30 EDT
 
 *** CALSTIS-6 complete ***
 
-End      12-Apr-2023 22:29:37 EDT
+End      14-Apr-2023 14:21:30 EDT
 
 *** CALSTIS-0 complete ***
 </pre>
@@ -14402,7 +14402,7 @@ End      12-Apr-2023 22:29:37 EDT
 <hr>
 <h2>About this Notebook <a class="tocSkip"></h2>
 <p><strong>Author:</strong> <a href="kding@stsci.edu">Keyi Ding</a></p>
-<p><strong>Updated On:</strong> 2023-04-12</p>
+<p><strong>Updated On:</strong> 2023-04-14</p>
 <blockquote><p><em>This tutorial was generated to be in compliance with the <a href="https://github.com/spacetelescope/style-guides">STScI style guides</a> and would like to cite the <a href="https://github.com/spacetelescope/style-guides/blob/master/templates/example_notebook.ipynb">Jupyter guide</a> in particular.</em></p>
 <h2>Citations <a class="tocSkip"></h2>
 </blockquote>
