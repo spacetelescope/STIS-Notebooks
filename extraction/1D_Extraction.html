@@ -13120,7 +13120,6 @@ div#notebook {
 <li><code>astroquery.mast.Observations</code> for finding and downloading data from the <a href="https://mast.stsci.edu/portal/Mashup/Clients/Mast/Portal.html">MAST</a> archive</li>
 <li><code>os</code> for managing system paths</li>
 <li><code>numpy</code> to handle array functions</li>
-<li><code>stistools</code> for operations on STIS Data</li>
 <li><code>matplotlib</code> for plotting data</li>
 </ul>
 
@@ -13136,59 +13135,23 @@ div#notebook {
 <span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
 <span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="n">Table</span>
 
-<span class="c1"># Import for: Downloading necessary files. (Not necessary if you choose to collect data from MAST)</span>
+<span class="c1"># Import for: Downloading necessary files.</span>
+<span class="c1"># (Not necessary if you choose to collect data from MAST)</span>
 <span class="kn">from</span> <span class="nn">astroquery.mast</span> <span class="kn">import</span> <span class="n">Observations</span>
-
-<span class="c1"># Import for: Managing system variables and paths</span>
-<span class="kn">import</span> <span class="nn">os</span>
 
 <span class="c1"># Import for: Quick Calculation and Data Analysis</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="c1"># Import for: Operations on STIS Data</span>
-<span class="kn">import</span> <span class="nn">stistools</span>
+<span class="c1"># Import for: Managing system variables and paths</span>
+<span class="kn">import</span> <span class="nn">os</span>
 
 <span class="c1"># Import for: Plotting and specifying plotting parameters</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">FixedLocator</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/Users/kding/miniconda3/envs/stis/lib/python3.7/site-packages/stsci/tools/nmpfit.py:8: UserWarning: NMPFIT is deprecated - stsci.tools v 3.5 is the last version to contain it.
-  warnings.warn(&#34;NMPFIT is deprecated - stsci.tools v 3.5 is the last version to contain it.&#34;)
-/Users/kding/miniconda3/envs/stis/lib/python3.7/site-packages/stsci/tools/gfit.py:18: UserWarning: GFIT is deprecated - stsci.tools v 3.4.12 is the last version to contain it.Use astropy.modeling instead.
-  warnings.warn(&#34;GFIT is deprecated - stsci.tools v 3.4.12 is the last version to contain it.&#34;
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The following tasks in the stistools package can be run with TEAL:
-   basic2d      calstis     ocrreject     wavecal        x1d          x2d
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -13247,8 +13210,8 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/product/odj102010_x1d.fits to ./mastDownload/HST/odj102010/odj102010_x1d.fits ... [Done]
-Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/product/odj102010_flt.fits to ./mastDownload/HST/odj102010/odj102010_flt.fits ... [Done]
+<pre>INFO: Found cached file ./mastDownload/HST/odj102010/odj102010_x1d.fits with expected size 77760. [astroquery.query]
+INFO: Found cached file ./mastDownload/HST/odj102010/odj102010_flt.fits with expected size 10535040. [astroquery.query]
 </pre>
 </div>
 </div>
@@ -13357,7 +13320,9 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'SPORDER'</span><span class="p">,</span> <span class="s1">'WAVELENGTH'</span><span class="p">,</span> <span class="s1">'FLUX'</span><span class="p">,</span> <span class="s1">'EXTRLOCY'</span><span class="p">,</span> <span class="s1">'A2CENTER'</span><span class="p">,</span> <span class="s1">'EXTRSIZE'</span><span class="p">,</span><span class="s1">'BK1SIZE'</span><span class="p">,</span> <span class="s1">'BK2SIZE'</span><span class="p">,</span> <span class="s1">'BK1OFFST'</span><span class="p">,</span> <span class="s1">'BK2OFFST'</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'SPORDER'</span><span class="p">,</span> <span class="s1">'WAVELENGTH'</span><span class="p">,</span> <span class="s1">'FLUX'</span><span class="p">,</span> <span class="s1">'EXTRLOCY'</span><span class="p">,</span>
+        <span class="s1">'A2CENTER'</span><span class="p">,</span> <span class="s1">'EXTRSIZE'</span><span class="p">,</span> <span class="s1">'BK1SIZE'</span><span class="p">,</span> <span class="s1">'BK2SIZE'</span><span class="p">,</span>
+        <span class="s1">'BK1OFFST'</span><span class="p">,</span> <span class="s1">'BK2OFFST'</span><span class="p">]</span>
 <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">x1d_filename</span><span class="p">)[</span><span class="n">cols</span><span class="p">]</span>
 </pre></div>
 
@@ -13387,7 +13352,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 
 
 <div class="output_html rendered_html output_subarea output_execute_result"><i>Table length=1</i>
-<table id="table140334336153424" class="table-striped table-bordered table-condensed">
+<table id="table140575237431120" class="table-striped table-bordered table-condensed">
 <thead><tr><th>SPORDER</th><th>WAVELENGTH [1024]</th><th>FLUX [1024]</th><th>EXTRLOCY [1024]</th><th>A2CENTER</th><th>EXTRSIZE</th><th>BK1SIZE</th><th>BK2SIZE</th><th>BK1OFFST</th><th>BK2OFFST</th></tr></thead>
 <thead><tr><th></th><th>Angstroms</th><th>erg / (Angstrom cm2 s)</th><th>pix</th><th>pix</th><th>pix</th><th>pix</th><th>pix</th><th>pix</th><th>pix</th></tr></thead>
 <thead><tr><th>int16</th><th>float64</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th></tr></thead>
@@ -13424,55 +13389,55 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">show_extraction_regions</span><span class="p">(</span><span class="n">x1d_filename</span><span class="p">,</span> <span class="n">flt_filename</span><span class="p">,</span> <span class="n">sci_ext</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xrange</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">yrange</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    
+
     <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.88</span><span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">set_figwidth</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">set_figheight</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">x1d_filename</span><span class="p">))</span>
-    
+
     <span class="n">x1d</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="n">x1d_filename</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="n">sci_ext</span><span class="p">)[</span><span class="n">row</span><span class="p">]</span>
     <span class="n">flt</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="n">flt_filename</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="p">(</span><span class="s1">'SCI'</span><span class="p">,</span> <span class="n">sci_ext</span><span class="p">))</span>
-    
+
     <span class="c1"># LEFT &amp; Right PLOTS:</span>
     <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]:</span>
         <span class="c1"># Display the 2D FLT spectrum on the left:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">flt</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">'auto'</span><span class="p">,</span> 
-                   <span class="n">vmin</span><span class="o">=-</span><span class="mi">6</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">flt</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">'auto'</span><span class="p">,</span>
+                  <span class="n">vmin</span><span class="o">=-</span><span class="mi">6</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'X'</span><span class="p">)</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Y'</span><span class="p">)</span>
 
     <span class="c1"># Right PLOT:</span>
     <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"A2CENTER=</span><span class="si">{</span><span class="n">x1d</span><span class="p">[</span><span class="s1">'A2CENTER'</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="c1"># Extraction region in red:</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span> 
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span>
                  <span class="n">x1d</span><span class="p">[</span><span class="s1">'EXTRLOCY'</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'r:'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span> 
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span>
                  <span class="n">x1d</span><span class="p">[</span><span class="s1">'EXTRLOCY'</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">x1d</span><span class="p">[</span><span class="s1">'EXTRSIZE'</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span>
                  <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span> 
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span>
                  <span class="n">x1d</span><span class="p">[</span><span class="s1">'EXTRLOCY'</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">x1d</span><span class="p">[</span><span class="s1">'EXTRSIZE'</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span>
                  <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
     <span class="c1"># Background regions in orange:</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span> 
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span>
                  <span class="n">x1d</span><span class="p">[</span><span class="s1">'EXTRLOCY'</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">x1d</span><span class="p">[</span><span class="s1">'BK1OFFST'</span><span class="p">]</span> <span class="o">-</span> <span class="n">x1d</span><span class="p">[</span><span class="s1">'BK1SIZE'</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span>
                  <span class="n">color</span><span class="o">=</span><span class="s1">'orange'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span> 
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span>
                  <span class="n">x1d</span><span class="p">[</span><span class="s1">'EXTRLOCY'</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">x1d</span><span class="p">[</span><span class="s1">'BK1OFFST'</span><span class="p">]</span> <span class="o">+</span> <span class="n">x1d</span><span class="p">[</span><span class="s1">'BK1SIZE'</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span>
                  <span class="n">color</span><span class="o">=</span><span class="s1">'orange'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span> 
-                 <span class="n">x1d</span><span class="p">[</span><span class="s1">'EXTRLOCY'</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">x1d</span><span class="p">[</span><span class="s1">'BK2OFFST'</span><span class="p">]</span> <span class="o">-</span> <span class="n">x1d</span><span class="p">[</span><span class="s1">'BK2SIZE'</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> 
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span>
+                 <span class="n">x1d</span><span class="p">[</span><span class="s1">'EXTRLOCY'</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">x1d</span><span class="p">[</span><span class="s1">'BK2OFFST'</span><span class="p">]</span> <span class="o">-</span> <span class="n">x1d</span><span class="p">[</span><span class="s1">'BK2SIZE'</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span>
                  <span class="n">color</span><span class="o">=</span><span class="s1">'orange'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span> 
-                 <span class="n">x1d</span><span class="p">[</span><span class="s1">'EXTRLOCY'</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">x1d</span><span class="p">[</span><span class="s1">'BK2OFFST'</span><span class="p">]</span> <span class="o">+</span> <span class="n">x1d</span><span class="p">[</span><span class="s1">'BK2SIZE'</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> 
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span>
+                 <span class="n">x1d</span><span class="p">[</span><span class="s1">'EXTRLOCY'</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">x1d</span><span class="p">[</span><span class="s1">'BK2OFFST'</span><span class="p">]</span> <span class="o">+</span> <span class="n">x1d</span><span class="p">[</span><span class="s1">'BK2SIZE'</span><span class="p">]</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span>
                  <span class="n">color</span><span class="o">=</span><span class="s1">'orange'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
-    
+
     <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1023.5</span><span class="p">)</span>
     <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1023.5</span><span class="p">)</span>
     <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1023.5</span><span class="p">)</span>
     <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1023.5</span><span class="p">)</span>
-    
+
     <span class="k">if</span> <span class="n">xrange</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xrange</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xrange</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xrange</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xrange</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -13627,7 +13592,9 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 <span class="c1"># get a list of files assiciated with that target</span>
 <span class="n">echelle_list</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">get_product_list</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
 <span class="c1"># Download fits files</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">download_products</span><span class="p">(</span><span class="n">echelle_list</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="p">[</span><span class="s1">'_flt.fits'</span><span class="p">,</span> <span class="s1">'_x1d.fits'</span><span class="p">],</span> <span class="n">productType</span><span class="o">=</span><span class="p">[</span><span class="s1">'SCIENCE'</span><span class="p">,])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">download_products</span><span class="p">(</span><span class="n">echelle_list</span><span class="p">,</span>
+                                        <span class="n">extension</span><span class="o">=</span><span class="p">[</span><span class="s1">'_flt.fits'</span><span class="p">,</span> <span class="s1">'_x1d.fits'</span><span class="p">],</span>
+                                        <span class="n">productType</span><span class="o">=</span><span class="p">[</span><span class="s1">'SCIENCE'</span><span class="p">])</span>
 <span class="n">echelle_flt</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s1">'./mastDownload/HST/</span><span class="si">{</span><span class="n">obs_id</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">obs_id</span><span class="si">}</span><span class="s1">_flt.fits'</span><span class="p">)</span>
 <span class="n">echelle_x1d</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s1">'./mastDownload/HST/</span><span class="si">{</span><span class="n">obs_id</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">obs_id</span><span class="si">}</span><span class="s1">_x1d.fits'</span><span class="p">)</span>
 </pre></div>
@@ -13646,8 +13613,8 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/product/octx01030_x1d.fits to ./mastDownload/HST/octx01030/octx01030_x1d.fits ... [Done]
-Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/product/octx01030_flt.fits to ./mastDownload/HST/octx01030/octx01030_flt.fits ... [Done]
+<pre>INFO: Found cached file ./mastDownload/HST/octx01030/octx01030_x1d.fits with expected size 7629120. [astroquery.query]
+INFO: Found cached file ./mastDownload/HST/octx01030/octx01030_flt.fits with expected size 84139200. [astroquery.query]
 </pre>
 </div>
 </div>
@@ -13699,7 +13666,7 @@ Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/produ
 
 
 <div class="output_html rendered_html output_subarea output_execute_result"><i>Table length=24</i>
-<table id="table140333506431376" class="table-striped table-bordered table-condensed">
+<table id="table140575098642512" class="table-striped table-bordered table-condensed">
 <thead><tr><th>SPORDER</th><th>WAVELENGTH [1024]</th><th>FLUX [1024]</th><th>EXTRLOCY [1024]</th><th>EXTRSIZE</th><th>BK1SIZE</th><th>BK2SIZE</th><th>BK1OFFST</th><th>BK2OFFST</th></tr></thead>
 <thead><tr><th></th><th>Angstroms</th><th>erg / (Angstrom cm2 s)</th><th>pix</th><th>pix</th><th>pix</th><th>pix</th><th>pix</th><th>pix</th></tr></thead>
 <thead><tr><th>int16</th><th>float64</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th></tr></thead>
