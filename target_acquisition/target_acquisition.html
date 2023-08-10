@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>imaging_acquisition</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>target_acquisition</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 <style type="text/css">
   pre { line-height: 125%; }
@@ -13126,7 +13126,7 @@ div#notebook {
 <ul>
 <li><code>astropy.io fits</code> for accessing FITS files</li>
 <li><code>astroquery.mast Observations</code> for finding and downloading data from the <a href="https://mast.stsci.edu/portal/Mashup/Clients/Mast/Portal.html">MAST</a> archive</li>
-<li><code>pathlib</code>,<code>os</code> for managing system paths</li>
+<li><code>os</code> for managing system paths</li>
 <li><code>matplotlib</code> for plotting data</li>
 <li><code>stistools</code> for quick operations on STIS Data</li>
 </ul>
@@ -13142,25 +13142,24 @@ div#notebook {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import for: Reading in fits file</span>
 <span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
 
-<span class="c1"># Import for: Downloading necessary files. (Not necessary if you choose to collect data from MAST)</span>
+<span class="c1"># Import for: Downloading necessary files. </span>
+<span class="c1"># (Not necessary if you choose to collect data from MAST)</span>
 <span class="kn">from</span> <span class="nn">astroquery.mast</span> <span class="kn">import</span> <span class="n">Observations</span>
 
+<span class="c1"># Import for operations on STIS Data</span>
+<span class="kn">import</span> <span class="nn">stistools</span>
+
 <span class="c1"># Import for: Managing system variables and paths</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="c1"># Import for: Plotting and specifying plotting parameters</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
 <span class="kn">from</span> <span class="nn">astropy.visualization</span> <span class="kn">import</span> <span class="n">ZScaleInterval</span>
 <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'image.origin'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'lower'</span>
 <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'image.cmap'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'plasma'</span>
 <span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'image.interpolation'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'none'</span>
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'figure.figsize'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
-
-<span class="c1"># Import for operations on STIS Data</span>
-<span class="kn">import</span> <span class="nn">stistools</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'figure.figsize'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13176,9 +13175,11 @@ div#notebook {
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The following tasks in the stistools package can be run with TEAL:
-   basic2d      calstis     ocrreject     wavecal        x1d          x2d
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Users/kding/miniconda3/envs/stis/lib/python3.7/site-packages/stsci/tools/nmpfit.py:10: UserWarning: NMPFIT is deprecated - stsci.tools v 3.5 is the last version to contain it.
+  warnings.warn(&#34;NMPFIT is deprecated - stsci.tools v 3.5 is the last version to contain it.&#34;)
+/Users/kding/miniconda3/envs/stis/lib/python3.7/site-packages/stsci/tools/gfit.py:20: UserWarning: GFIT is deprecated - stsci.tools v 3.4.12 is the last version to contain it.Use astropy.modeling instead.
+  warnings.warn(&#34;GFIT is deprecated - stsci.tools v 3.4.12 is the last version to contain it.&#34;
 </pre>
 </div>
 </div>
@@ -13188,11 +13189,9 @@ div#notebook {
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/Users/kding/miniconda3/envs/stis/lib/python3.7/site-packages/stsci/tools/nmpfit.py:10: UserWarning: NMPFIT is deprecated - stsci.tools v 3.5 is the last version to contain it.
-  warnings.warn(&#34;NMPFIT is deprecated - stsci.tools v 3.5 is the last version to contain it.&#34;)
-/Users/kding/miniconda3/envs/stis/lib/python3.7/site-packages/stsci/tools/gfit.py:20: UserWarning: GFIT is deprecated - stsci.tools v 3.4.12 is the last version to contain it.Use astropy.modeling instead.
-  warnings.warn(&#34;GFIT is deprecated - stsci.tools v 3.4.12 is the last version to contain it.&#34;
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The following tasks in the stistools package can be run with TEAL:
+   basic2d      calstis     ocrreject     wavecal        x1d          x2d
 </pre>
 </div>
 </div>
@@ -13220,49 +13219,46 @@ div#notebook {
     <span class="c1"># get a list of files assiciated with that target</span>
     <span class="n">acq_list</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">get_product_list</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
     <span class="c1"># Download only the _raw and _spt fits files</span>
-    <span class="n">Observations</span><span class="o">.</span><span class="n">download_products</span><span class="p">(</span><span class="n">acq_list</span><span class="p">,</span><span class="n">extension</span><span class="o">=</span><span class="p">[</span><span class="s1">'raw.fits'</span><span class="p">,</span><span class="s1">'spt.fits'</span><span class="p">])</span>
-    <span class="n">raw</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"./mastDownload/HST"</span><span class="p">,</span><span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">obs_id</span><span class="p">),</span><span class="s2">"</span><span class="si">{}</span><span class="s2">_raw.fits"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">obs_id</span><span class="p">))</span>
-    
+    <span class="n">Observations</span><span class="o">.</span><span class="n">download_products</span><span class="p">(</span><span class="n">acq_list</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="p">[</span><span class="s1">'raw.fits'</span><span class="p">,</span> <span class="s1">'spt.fits'</span><span class="p">])</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"./mastDownload/HST"</span><span class="p">,</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">obs_id</span><span class="p">),</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">_raw.fits"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">obs_id</span><span class="p">))</span>
+
     <span class="c1"># plot the acquisition raw images</span>
     <span class="k">with</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span> <span class="k">as</span> <span class="n">hdu</span><span class="p">:</span>
         <span class="n">initial</span> <span class="o">=</span> <span class="n">hdu</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
         <span class="n">confirm</span> <span class="o">=</span> <span class="n">hdu</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
         <span class="n">lamp</span> <span class="o">=</span> <span class="n">hdu</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
-    <span class="n">zscaler</span> <span class="o">=</span> <span class="n">ZScaleInterval</span><span class="p">(</span><span class="n">contrast</span><span class="o">=</span><span class="mf">0.10</span><span class="p">)</span><span class="o">.</span><span class="n">get_limits</span> 
+    <span class="n">zscaler</span> <span class="o">=</span> <span class="n">ZScaleInterval</span><span class="p">(</span><span class="n">contrast</span><span class="o">=</span><span class="mf">0.10</span><span class="p">)</span><span class="o">.</span><span class="n">get_limits</span>
     <span class="n">_</span><span class="p">,</span> <span class="n">initial_max</span> <span class="o">=</span> <span class="n">zscaler</span><span class="p">(</span><span class="n">initial</span><span class="p">)</span>
     <span class="n">_</span><span class="p">,</span> <span class="n">confirm_max</span> <span class="o">=</span> <span class="n">zscaler</span><span class="p">(</span><span class="n">confirm</span><span class="p">)</span>
-    <span class="n">vmax</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">initial_max</span><span class="p">,</span><span class="n">confirm_max</span><span class="p">)</span>
-    
+    <span class="n">vmax</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">initial_max</span><span class="p">,</span> <span class="n">confirm_max</span><span class="p">)</span>
+
     <span class="c1"># plot the initial target position in coarse phase</span>
-    <span class="n">TARGA1_1</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span><span class="mi">1</span><span class="p">)[</span><span class="s2">"TARGA1"</span><span class="p">]</span>
-    <span class="n">TARGA2_1</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span><span class="mi">1</span><span class="p">)[</span><span class="s2">"TARGA2"</span><span class="p">]</span>
-    <span class="n">TARGA1_2</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span><span class="mi">4</span><span class="p">)[</span><span class="s2">"TARGA1"</span><span class="p">]</span>
-    <span class="n">TARGA2_2</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span><span class="mi">4</span><span class="p">)[</span><span class="s2">"TARGA2"</span><span class="p">]</span>
-    <span class="n">centera1</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span><span class="mi">0</span><span class="p">)[</span><span class="s2">"CENTERA1"</span><span class="p">]</span>
-    <span class="n">centera2</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span><span class="mi">0</span><span class="p">)[</span><span class="s2">"CENTERA2"</span><span class="p">]</span>
-    <span class="n">sizaxis1</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span><span class="mi">0</span><span class="p">)[</span><span class="s2">"sizaxis1"</span><span class="p">]</span>
-    <span class="n">sizaxis2</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span><span class="mi">0</span><span class="p">)[</span><span class="s2">"sizaxis2"</span><span class="p">]</span>
-    <span class="n">corner1</span> <span class="o">=</span> <span class="n">centera1</span> <span class="o">-</span> <span class="n">sizaxis1</span><span class="o">/</span><span class="mi">2</span> 
+    <span class="n">TARGA1_1</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="s2">"TARGA1"</span><span class="p">]</span>
+    <span class="n">TARGA2_1</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="s2">"TARGA2"</span><span class="p">]</span>
+    <span class="n">TARGA1_2</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="mi">4</span><span class="p">)[</span><span class="s2">"TARGA1"</span><span class="p">]</span>
+    <span class="n">TARGA2_2</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="mi">4</span><span class="p">)[</span><span class="s2">"TARGA2"</span><span class="p">]</span>
+    <span class="n">centera1</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="mi">0</span><span class="p">)[</span><span class="s2">"CENTERA1"</span><span class="p">]</span>
+    <span class="n">centera2</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="mi">0</span><span class="p">)[</span><span class="s2">"CENTERA2"</span><span class="p">]</span>
+    <span class="n">sizaxis1</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="mi">0</span><span class="p">)[</span><span class="s2">"sizaxis1"</span><span class="p">]</span>
+    <span class="n">sizaxis2</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="mi">0</span><span class="p">)[</span><span class="s2">"sizaxis2"</span><span class="p">]</span>
+    <span class="n">corner1</span> <span class="o">=</span> <span class="n">centera1</span> <span class="o">-</span> <span class="n">sizaxis1</span><span class="o">/</span><span class="mi">2</span>
     <span class="n">corner2</span> <span class="o">=</span> <span class="n">centera2</span> <span class="o">-</span> <span class="n">sizaxis2</span><span class="o">/</span><span class="mi">2</span>
-    
-    <span class="n">checkbox_size</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span><span class="mi">0</span><span class="p">)[</span><span class="s2">"CHECKBOX"</span><span class="p">]</span>
-    
-    
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">initial</span><span class="p">,</span><span class="n">vmin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="n">vmax</span> <span class="o">=</span> <span class="n">vmax</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">TARGA1_1</span><span class="o">-</span><span class="n">corner1</span><span class="o">+</span><span class="mi">1</span><span class="p">],[</span><span class="n">TARGA2_1</span><span class="o">-</span><span class="n">corner2</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="s2">"x"</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s2">"white"</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">TARGA1_1</span><span class="o">-</span><span class="n">corner1</span><span class="o">+</span><span class="mi">1</span><span class="p">],[</span><span class="n">TARGA2_1</span><span class="o">-</span><span class="n">corner2</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="s2">"x"</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">initial</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">TARGA1_1</span><span class="o">-</span><span class="n">corner1</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">TARGA2_1</span><span class="o">-</span><span class="n">corner2</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="s2">"x"</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">"white"</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">TARGA1_1</span><span class="o">-</span><span class="n">corner1</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">TARGA2_1</span><span class="o">-</span><span class="n">corner2</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="s2">"x"</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Before Coarse Slew"</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">confirm</span><span class="p">,</span><span class="n">vmin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="n">vmax</span> <span class="o">=</span> <span class="n">vmax</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">TARGA1_2</span><span class="o">-</span><span class="n">corner1</span><span class="o">+</span><span class="mi">1</span><span class="p">],[</span><span class="n">TARGA2_2</span><span class="o">-</span><span class="n">corner2</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="s2">"x"</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s2">"white"</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">TARGA1_2</span><span class="o">-</span><span class="n">corner1</span><span class="o">+</span><span class="mi">1</span><span class="p">],[</span><span class="n">TARGA2_2</span><span class="o">-</span><span class="n">corner2</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="s2">"x"</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">confirm</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">TARGA1_2</span><span class="o">-</span><span class="n">corner1</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">TARGA2_2</span><span class="o">-</span><span class="n">corner2</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="s2">"x"</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">"white"</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">TARGA1_2</span><span class="o">-</span><span class="n">corner1</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">TARGA2_2</span><span class="o">-</span><span class="n">corner2</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="s2">"x"</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Before Fine Slew"</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">lamp</span><span class="p">,</span><span class="n">vmin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="n">vmax</span> <span class="o">=</span> <span class="mi">6000</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">lamp</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">6000</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s2">"$0.2 \times 0.2$ Reference Aperture with HITM lamp"</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-    
+
     <span class="n">stistools</span><span class="o">.</span><span class="n">tastis</span><span class="o">.</span><span class="n">tastis</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
 </pre></div>
 
@@ -13286,11 +13282,11 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_telemetry</span><span class="p">(</span><span class="n">obs_id</span><span class="p">):</span>
     <span class="n">raw_file</span> <span class="o">=</span> <span class="s2">"./mastDownload/HST/</span><span class="si">{id}</span><span class="s2">/</span><span class="si">{id}</span><span class="s2">_raw.fits"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">obs_id</span><span class="p">)</span>
-    <span class="n">quality</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getval</span><span class="p">(</span><span class="n">raw_file</span><span class="p">,</span><span class="s2">"QUALITY"</span><span class="p">,</span><span class="n">ext</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">QUALCOM1</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getval</span><span class="p">(</span><span class="n">raw_file</span><span class="p">,</span><span class="s2">"QUALCOM1"</span><span class="p">,</span><span class="n">ext</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">QUALCOM2</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getval</span><span class="p">(</span><span class="n">raw_file</span><span class="p">,</span><span class="s2">"QUALCOM2"</span><span class="p">,</span><span class="n">ext</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">QUALCOM3</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getval</span><span class="p">(</span><span class="n">raw_file</span><span class="p">,</span><span class="s2">"QUALCOM3"</span><span class="p">,</span><span class="n">ext</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'The quality of this exposure is </span><span class="si">{}</span><span class="s1">.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">quality</span><span class="p">),</span><span class="n">QUALCOM1</span><span class="p">,</span><span class="n">QUALCOM2</span><span class="p">,</span><span class="n">QUALCOM3</span><span class="p">)</span>
+    <span class="n">quality</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getval</span><span class="p">(</span><span class="n">raw_file</span><span class="p">,</span> <span class="s2">"QUALITY"</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">QUALCOM1</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getval</span><span class="p">(</span><span class="n">raw_file</span><span class="p">,</span> <span class="s2">"QUALCOM1"</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">QUALCOM2</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getval</span><span class="p">(</span><span class="n">raw_file</span><span class="p">,</span> <span class="s2">"QUALCOM2"</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">QUALCOM3</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getval</span><span class="p">(</span><span class="n">raw_file</span><span class="p">,</span> <span class="s2">"QUALCOM3"</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'The quality of this exposure is </span><span class="si">{}</span><span class="s1">.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">quality</span><span class="p">),</span> <span class="n">QUALCOM1</span><span class="p">,</span> <span class="n">QUALCOM2</span><span class="p">,</span> <span class="n">QUALCOM3</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14000,12 +13996,12 @@ the final centering.
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"./mastDownload/HST"</span><span class="p">,</span><span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"oe4h03rdq"</span><span class="p">),</span><span class="s2">"</span><span class="si">{}</span><span class="s2">_raw.fits"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"oe4h03rdq"</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"./mastDownload/HST"</span><span class="p">,</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"oe4h03rdq"</span><span class="p">),</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">_raw.fits"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"oe4h03rdq"</span><span class="p">))</span>
 <span class="k">with</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span> <span class="k">as</span> <span class="n">hdu</span><span class="p">:</span>
     <span class="n">confirm</span> <span class="o">=</span> <span class="n">hdu</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">confirm</span><span class="p">,</span><span class="n">vmin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="n">vmax</span> <span class="o">=</span> <span class="mf">1e4</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="mi">62</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span><span class="mi">65</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">confirm</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1e4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">62</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">65</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14143,15 +14139,16 @@ than 4 pixels.  This may indicate a problem with your acquisition.
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <h2>About this Notebook <a class="tocSkip"></h2>
-<p><strong>Author:</strong> <a href="kding@stsci.edu">Keyi Ding</a></p>
-<p><strong>Updated On:</strong> 2023-04-12</p>
-<blockquote><p><em>This tutorial was generated to be in compliance with the <a href="https://github.com/spacetelescope/style-guides">STScI style guides</a> and would like to cite the <a href="https://github.com/spacetelescope/style-guides/blob/master/templates/example_notebook.ipynb">Jupyter guide</a> in particular.</em></p>
+<p><strong>Author:</strong> Keyi Ding</p>
+<p><strong>Updated On:</strong> 2023-05-18</p>
+<blockquote><p><em>This tutorial was generated to be in compliance with the <a href="https://github.com/spacetelescope/style-guides">STScI style guides</a> and would like to cite the <a href="https://github.com/spacetelescope/style-guides/blob/master/templates/example_notebook.ipynb">Jupyter guide</a> in particular.</em>
+&lt;\a&gt;</p>
 <h2>Citations <a class="tocSkip"></h2>
 </blockquote>
 <p>If you use <code>astropy</code>, <code>matplotlib</code>, <code>astroquery</code>, or <code>numpy</code> for published research, please cite the
 authors. Follow these links for more information about citations:</p>
 <ul>
-<li><a href="https://www.scipy.org/citing.html">Citing <code>astropy</code>/<code>numpy</code>/<code>matplotlib</code></a></li>
+<li><a href="https://www.astropy.org/acknowledging.html">Citing <code>astropy</code></a>/<a href="https://numpy.org/citing-numpy/"><code>numpy</code></a>/<a href="https://matplotlib.org/stable/users/project/citing.html"><code>matplotlib</code></a></li>
 <li><a href="https://astroquery.readthedocs.io/en/latest/">Citing <code>astroquery</code></a></li>
 </ul>
 <hr>
