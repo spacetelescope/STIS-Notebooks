@@ -13114,7 +13114,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Import-Necessary-Packages">Import Necessary Packages<a class="anchor-link" href="#Import-Necessary-Packages">&#182;</a></h3><ul>
-<li><code>astropy.io fits</code> <code>astropy.table Table</code> for accessing FITS files</li>
+<li><code>astropy.io fits</code> for accessing FITS files</li>
 <li><code>astroquery.mast Observations</code> for finding and downloading data from the <a href="https://mast.stsci.edu/portal/Mashup/Clients/Mast/Portal.html">MAST</a> archive</li>
 <li><code>astropy.modeling fitting</code> <code>astropy.modeling.models Polynomial1D</code>for fitting polynomials</li>
 <li><code>scipy.signal correlate</code> for performing cross-correlation</li>
@@ -13132,24 +13132,33 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import for: Reading in fits file</span>
+<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
+
+<span class="c1"># Import for: Downloading necessary files. </span>
+<span class="c1"># (Not necessary if you choose to collect data from MAST)</span>
 <span class="kn">from</span> <span class="nn">astroquery.mast</span> <span class="kn">import</span> <span class="n">Observations</span>
 
+<span class="c1"># Imort for: Model Fitting</span>
 <span class="kn">from</span> <span class="nn">astropy.modeling</span> <span class="kn">import</span> <span class="n">fitting</span>
 <span class="kn">from</span> <span class="nn">astropy.modeling.models</span> <span class="kn">import</span> <span class="n">Polynomial1D</span>
 
+<span class="c1"># Import for: Performing cross-correlatoin</span>
 <span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">correlate</span>
 <span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">correlation_lags</span>
 
+<span class="c1"># Import for: Plotting</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
 
+<span class="c1"># Import for: Quick Calculation and Data Analysis</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span><span class="nn">shutil</span>
+<span class="c1"># Import for: Managing system variables and paths</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
+<span class="c1"># Import for operations on STIS Data</span>
 <span class="kn">import</span> <span class="nn">stistools</span>
 </pre></div>
 
@@ -13194,7 +13203,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Collect-Data-Set-From-the-MAST-Archive-Using-Astroquery">Collect Data Set From the MAST Archive Using Astroquery<a class="anchor-link" href="#Collect-Data-Set-From-the-MAST-Archive-Using-Astroquery">&#182;</a></h3><p>In this notebook, we need two download and explore their correlation.</p>
+<h3 id="Collect-Data-Set-From-the-MAST-Archive-Using-Astroquery">Collect Data Set From the MAST Archive Using Astroquery<a class="anchor-link" href="#Collect-Data-Set-From-the-MAST-Archive-Using-Astroquery">&#182;</a></h3><p>In this notebook, we need to download two datasets and explore their correlation.</p>
 
 </div>
 </div>
@@ -13210,11 +13219,11 @@ div#notebook {
 <span class="c1"># Search target object by obs_id</span>
 <span class="n">target_id</span> <span class="o">=</span> <span class="s2">"odj101050"</span>
 <span class="n">ref_id</span> <span class="o">=</span> <span class="s2">"odj101060"</span>
-<span class="n">target</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span><span class="n">obs_id</span><span class="o">=</span><span class="p">[</span><span class="n">target_id</span><span class="p">,</span><span class="n">ref_id</span><span class="p">])</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span><span class="n">obs_id</span><span class="o">=</span><span class="p">[</span><span class="n">target_id</span><span class="p">,</span> <span class="n">ref_id</span><span class="p">])</span>
 <span class="c1"># get a list of files assiciated with that target</span>
 <span class="n">target_list</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">get_product_list</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
 <span class="c1"># Download only the SCIENCE fits files</span>
-<span class="n">Observations</span><span class="o">.</span><span class="n">download_products</span><span class="p">(</span><span class="n">target_list</span><span class="p">,</span><span class="n">productType</span><span class="o">=</span><span class="s2">"SCIENCE"</span><span class="p">)</span>
+<span class="n">Observations</span><span class="o">.</span><span class="n">download_products</span><span class="p">(</span><span class="n">target_list</span><span class="p">,</span> <span class="n">productType</span><span class="o">=</span><span class="s2">"SCIENCE"</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13250,7 +13259,7 @@ Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/produ
 
 
 <div class="output_html rendered_html output_subarea output_execute_result"><i>Table length=8</i>
-<table id="table140586094218896" class="table-striped table-bordered table-condensed">
+<table id="table140538865091152" class="table-striped table-bordered table-condensed">
 <thead><tr><th>Local Path</th><th>Status</th><th>Message</th><th>URL</th></tr></thead>
 <thead><tr><th>str47</th><th>str8</th><th>object</th><th>object</th></tr></thead>
 <tr><td>./mastDownload/HST/odj101050/odj101050_raw.fits</td><td>COMPLETE</td><td>None</td><td>None</td></tr>
@@ -13282,7 +13291,7 @@ Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/produ
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pip_raw</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"./mastDownload/HST"</span><span class="p">,</span><span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">),</span><span class="s2">"</span><span class="si">{}</span><span class="s2">_raw.fits"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pip_raw</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"./mastDownload/HST"</span><span class="p">,</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">),</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">_raw.fits"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">))</span>
 <span class="c1"># Set the "WAVECORR" switch in the raw fits file header to "OMIT"</span>
 <span class="n">fits</span><span class="o">.</span><span class="n">setval</span><span class="p">(</span><span class="n">pip_raw</span><span class="p">,</span> <span class="s2">"WAVECORR"</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">"OMIT"</span><span class="p">)</span>
 
@@ -13292,7 +13301,7 @@ Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/produ
     <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">shifted_dir</span><span class="p">)</span>
 <span class="n">Path</span><span class="p">(</span><span class="n">shifted_dir</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1"># Recalibration</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">stistools</span><span class="o">.</span><span class="n">calstis</span><span class="o">.</span><span class="n">calstis</span><span class="p">(</span><span class="n">pip_raw</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">outroot</span><span class="o">=</span><span class="s2">"./Shifted/"</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">stistools</span><span class="o">.</span><span class="n">calstis</span><span class="o">.</span><span class="n">calstis</span><span class="p">(</span><span class="n">pip_raw</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">outroot</span><span class="o">=</span><span class="s2">"./Shifted/"</span><span class="p">)</span>
 <span class="c1"># calstis returns 0 if calibration completes; if not, raise assertion error</span>
 <span class="k">assert</span> <span class="n">res</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"CalSTIS exited with an error:  </span><span class="si">{</span><span class="n">res</span><span class="si">}</span><span class="s2">"</span>
 </pre></div>
@@ -13313,13 +13322,13 @@ Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:HST/produ
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 *** CALSTIS-0 -- Version 3.4.2 (19-Jan-2018) ***
-Begin    14-Apr-2023 14:20:35 EDT
+Begin    02-May-2023 20:57:06 EDT
 
 Input    ./mastDownload/HST/odj101050/odj101050_raw.fits
 Outroot  ./Shifted/odj101050_raw.fits
 
 *** CALSTIS-1 -- Version 3.4.2 (19-Jan-2018) ***
-Begin    14-Apr-2023 14:20:38 EDT
+Begin    02-May-2023 20:57:15 EDT
 Input    ./mastDownload/HST/odj101050/odj101050_raw.fits
 Output   ./Shifted/odj101050_flt.fits
 OBSMODE  ACCUM
@@ -13327,7 +13336,7 @@ APERTURE 52X0.2
 OPT_ELEM G140M
 DETECTOR FUV-MAMA
 
-Imset 1  Begin 14:20:39 EDT
+Imset 1  Begin 20:57:15 EDT
 
 DQICORR  PERFORM
 DQITAB   oref$uce15153o_bpx.fits
@@ -13369,27 +13378,27 @@ DOPPCORR applied to DQICORR, DARKCORR, FLATCORR
 
 STATFLAG PERFORM
 STATFLAG COMPLETE
-Imset 1  End 14:21:10 EDT
+Imset 1  End 20:58:25 EDT
 
-End      14-Apr-2023 14:21:10 EDT
+End      02-May-2023 20:58:25 EDT
 
 *** CALSTIS-1 complete ***
 
 *** CALSTIS-7 -- Version 3.4.2 (19-Jan-2018) ***
-Begin    14-Apr-2023 14:21:10 EDT
+Begin    02-May-2023 20:58:25 EDT
 Input    ./Shifted/odj101050_flt.fits
 Output   ./Shifted/odj101050_x2d.fits
 OBSMODE  ACCUM
 APERTURE 52X0.2
 OPT_ELEM G140M
 DETECTOR FUV-MAMA
-Imset 1  Begin 14:21:18 EDT
+Imset 1  Begin 20:58:35 EDT
 Warning  Wavecal processing has not been performed.
 
 HELCORR  PERFORM
 HELCORR  COMPLETE
 
-Order 1  Begin 14:21:19 EDT
+Order 1  Begin 20:58:35 EDT
 
 X2DCORR  PERFORM
 DISPCORR PERFORM
@@ -13433,15 +13442,15 @@ TDSTAB   DESCRIP =Updated time and temperature sensitivities for all optical ele
 FLUXCORR COMPLETE
 X2DCORR  COMPLETE
 DISPCORR COMPLETE
-Order 1  End 14:21:21 EDT
-Imset 1  End 14:21:21 EDT
+Order 1  End 20:59:08 EDT
+Imset 1  End 20:59:08 EDT
 
-End      14-Apr-2023 14:21:21 EDT
+End      02-May-2023 20:59:08 EDT
 
 *** CALSTIS-7 complete ***
 
 *** CALSTIS-6 -- Version 3.4.2 (19-Jan-2018) ***
-Begin    14-Apr-2023 14:21:21 EDT
+Begin    02-May-2023 20:59:08 EDT
 
 Warning  Grating-aperture throughput correction table (GACTAB) was not found,
          and no gac corrections will be applied
@@ -13461,9 +13470,9 @@ SPTRCTAB oref$q8l14504o_1dt.fits
 SPTRCTAB PEDIGREE=INFLIGHT 27/02/1997 06/02/1999
 SPTRCTAB DESCRIP =New G140L traces and updated Echelle A2CENTER values
 
-Imset 1  Begin 14:21:21 EDT
+Imset 1  Begin 20:59:10 EDT
          Input read into memory.
-Order 1  Begin 14:21:21 EDT
+Order 1  Begin 20:59:11 EDT
 X1DCORR  PERFORM
 BACKCORR PERFORM
 ******** Calling Slfit ***********BACKCORR COMPLETE
@@ -13504,16 +13513,16 @@ FLUXCORR COMPLETE
 SGEOCORR OMIT
 
          Row 1 written to disk.
-Order 1  End 14:21:22 EDT
+Order 1  End 20:59:11 EDT
 
-Imset 1  End 14:21:22 EDT
+Imset 1  End 20:59:11 EDT
 
 Warning  Keyword `XTRACALG&#39; is being added to header.
-End      14-Apr-2023 14:21:22 EDT
+End      02-May-2023 20:59:11 EDT
 
 *** CALSTIS-6 complete ***
 
-End      14-Apr-2023 14:21:22 EDT
+End      02-May-2023 20:59:11 EDT
 
 *** CALSTIS-0 complete ***
 </pre>
@@ -13538,19 +13547,19 @@ As seen in the plot, the spectrum is now shifted compared to the pipeline spectr
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pip_x1d</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"./mastDownload/HST"</span><span class="p">,</span><span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">),</span><span class="s2">"</span><span class="si">{}</span><span class="s2">_x1d.fits"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pip_x1d</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"./mastDownload/HST"</span><span class="p">,</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">),</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">_x1d.fits"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">))</span>
 <span class="n">shifted_x1d</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"./Shifted/</span><span class="si">{}</span><span class="s2">_x1d.fits"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">))</span>
 
 <span class="k">with</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">pip_x1d</span><span class="p">)</span> <span class="k">as</span> <span class="n">hdu1</span><span class="p">,</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">shifted_x1d</span><span class="p">)</span> <span class="k">as</span> <span class="n">hdu2</span><span class="p">:</span>
     <span class="n">pip_wl</span> <span class="o">=</span> <span class="n">hdu1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"WAVELENGTH"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">pip_flux</span> <span class="o">=</span> <span class="n">hdu1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"FLUX"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    
+
     <span class="n">shifted_wl</span> <span class="o">=</span> <span class="n">hdu2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"WAVELENGTH"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">shifted_flux</span> <span class="o">=</span> <span class="n">hdu2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"FLUX"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pip_wl</span><span class="p">,</span><span class="n">pip_flux</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">"Pipeline Spectrum (</span><span class="si">{}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">),</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">shifted_wl</span><span class="p">,</span><span class="n">shifted_flux</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">"Shifted spectrum (</span><span class="si">{}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">),</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pip_wl</span><span class="p">,</span> <span class="n">pip_flux</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Pipeline Spectrum (</span><span class="si">{}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">shifted_wl</span><span class="p">,</span> <span class="n">shifted_flux</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Shifted spectrum (</span><span class="si">{}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"best"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Wavelength [Å]"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Flux [ergs/s/cm$^2$/Å]"</span><span class="p">)</span>
@@ -13610,20 +13619,20 @@ As seen in the plot, the spectrum is now shifted compared to the pipeline spectr
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ref_x1d</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"./mastDownload/HST"</span><span class="p">,</span><span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ref_id</span><span class="p">),</span><span class="s2">"</span><span class="si">{}</span><span class="s2">_x1d.fits"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ref_id</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ref_x1d</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"./mastDownload/HST"</span><span class="p">,</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ref_id</span><span class="p">),</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">_x1d.fits"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ref_id</span><span class="p">))</span>
 
 <span class="k">with</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">ref_x1d</span><span class="p">)</span> <span class="k">as</span> <span class="n">hdu1</span><span class="p">,</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">shifted_x1d</span><span class="p">)</span> <span class="k">as</span> <span class="n">hdu2</span><span class="p">:</span>
     <span class="n">wl</span> <span class="o">=</span> <span class="n">hdu1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"WAVELENGTH"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">ref_flux</span> <span class="o">=</span> <span class="n">hdu1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"FLUX"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    
+
     <span class="n">shifted_wl</span> <span class="o">=</span> <span class="n">hdu2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"WAVELENGTH"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">shifted_flux</span> <span class="o">=</span> <span class="n">hdu2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"FLUX"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    
-    <span class="n">shifted_flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">wl</span><span class="p">,</span><span class="n">shifted_wl</span><span class="p">,</span><span class="n">shifted_flux</span><span class="p">)</span>
+
+    <span class="n">shifted_flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">wl</span><span class="p">,</span> <span class="n">shifted_wl</span><span class="p">,</span> <span class="n">shifted_flux</span><span class="p">)</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wl</span><span class="p">,</span><span class="n">ref_flux</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">"Reference spectrum (</span><span class="si">{}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wl</span><span class="p">,</span><span class="n">shifted_flux</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">"Shifted spectrum (</span><span class="si">{}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ref_id</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wl</span><span class="p">,</span> <span class="n">ref_flux</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Reference spectrum (</span><span class="si">{}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wl</span><span class="p">,</span> <span class="n">shifted_flux</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Shifted spectrum (</span><span class="si">{}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ref_id</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"best"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Wavelength [Å]"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Flux [ergs/s/cm$^2$/Å]"</span><span class="p">)</span>
@@ -13765,18 +13774,18 @@ As seen in the plot, the spectrum is now shifted compared to the pipeline spectr
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">cross_correlate</span><span class="p">(</span><span class="n">shifted_flux</span><span class="p">,</span> <span class="n">ref_flux</span><span class="p">):</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">shifted_flux</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">ref_flux</span><span class="p">),</span> <span class="s2">"Arrays must be same size"</span>
-    
+
     <span class="c1"># Normalize inputs:</span>
     <span class="n">shifted_flux</span> <span class="o">=</span> <span class="n">shifted_flux</span> <span class="o">-</span> <span class="n">shifted_flux</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
     <span class="n">shifted_flux</span> <span class="o">/=</span> <span class="n">shifted_flux</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
     <span class="n">ref_flux</span> <span class="o">=</span> <span class="n">ref_flux</span> <span class="o">-</span> <span class="n">ref_flux</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
     <span class="n">ref_flux</span> <span class="o">/=</span> <span class="n">ref_flux</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-    
+
     <span class="c1"># centered at the median of len(a)</span>
-    <span class="n">lag</span> <span class="o">=</span> <span class="n">correlation_lags</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">shifted_flux</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">ref_flux</span><span class="p">),</span><span class="n">mode</span><span class="o">=</span><span class="s2">"same"</span><span class="p">)</span> 
+    <span class="n">lag</span> <span class="o">=</span> <span class="n">correlation_lags</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">shifted_flux</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">ref_flux</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"same"</span><span class="p">)</span>
     <span class="c1"># find the cross-correlation coefficient</span>
     <span class="n">cc</span> <span class="o">=</span> <span class="n">correlate</span><span class="p">(</span><span class="n">shifted_flux</span><span class="p">,</span> <span class="n">ref_flux</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"same"</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ref_flux</span><span class="p">))</span>
-        
+ 
     <span class="k">return</span> <span class="n">lag</span><span class="p">,</span> <span class="n">cc</span>
 </pre></div>
 
@@ -13801,23 +13810,23 @@ As seen in the plot, the spectrum is now shifted compared to the pipeline spectr
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">lag</span><span class="p">,</span><span class="n">cc</span> <span class="o">=</span> <span class="n">cross_correlate</span><span class="p">(</span><span class="n">shifted_flux1</span><span class="p">,</span><span class="n">ref_flux1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lag</span><span class="p">,</span><span class="n">cc</span><span class="p">,</span><span class="s2">".-"</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">"cross-correlation coefficient"</span><span class="p">)</span>
+<span class="n">lag</span><span class="p">,</span> <span class="n">cc</span> <span class="o">=</span> <span class="n">cross_correlate</span><span class="p">(</span><span class="n">shifted_flux1</span><span class="p">,</span> <span class="n">ref_flux1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lag</span><span class="p">,</span> <span class="n">cc</span><span class="p">,</span> <span class="s2">".-"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"cross-correlation coefficient"</span><span class="p">)</span>
 
 <span class="c1"># fit quadratic near the peak to find the pixel shift</span>
 <span class="n">fitter</span> <span class="o">=</span> <span class="n">fitting</span><span class="o">.</span><span class="n">LinearLSQFitter</span><span class="p">()</span>
 <span class="c1"># get the 5 points near the peak</span>
 <span class="n">width</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">low</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">cc</span><span class="p">)</span> <span class="o">-</span> <span class="n">width</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">cc</span><span class="p">)</span> <span class="o">+</span> <span class="n">width</span><span class="o">//</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="n">fit</span> <span class="o">=</span> <span class="n">fitter</span><span class="p">(</span><span class="n">Polynomial1D</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span><span class="n">x</span><span class="o">=</span><span class="n">lag</span><span class="p">[</span><span class="n">low</span><span class="p">:</span><span class="n">hi</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">cc</span><span class="p">[</span><span class="n">low</span><span class="p">:</span><span class="n">hi</span><span class="p">])</span>
-<span class="n">x_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_c</span><span class="p">,</span> <span class="n">fit</span><span class="p">(</span><span class="n">x_c</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">"fitted quadratic curve"</span><span class="p">)</span>
+<span class="n">fit</span> <span class="o">=</span> <span class="n">fitter</span><span class="p">(</span><span class="n">Polynomial1D</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="n">lag</span><span class="p">[</span><span class="n">low</span><span class="p">:</span><span class="n">hi</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">cc</span><span class="p">[</span><span class="n">low</span><span class="p">:</span><span class="n">hi</span><span class="p">])</span>
+<span class="n">x_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_c</span><span class="p">,</span> <span class="n">fit</span><span class="p">(</span><span class="n">x_c</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"fitted quadratic curve"</span><span class="p">)</span>
 <span class="c1"># finding the maxima</span>
 <span class="n">shift1</span> <span class="o">=</span> <span class="o">-</span><span class="n">fit</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">fit</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">shift1</span><span class="p">,</span><span class="n">shift1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">"quadratic curve maxima"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">shift1</span><span class="p">,</span> <span class="n">shift1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"quadratic curve maxima"</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Lag [pix]"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Cross-correlation coeff"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"15168-01, G140M/C1222 Observations"</span><span class="p">)</span>
@@ -13840,7 +13849,7 @@ As seen in the plot, the spectrum is now shifted compared to the pipeline spectr
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.legend.Legend at 0x7fdce279d090&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x7fd1f1075a90&gt;</pre>
 </div>
 
 </div>
@@ -13917,23 +13926,23 @@ As seen in the plot, the spectrum is now shifted compared to the pipeline spectr
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">lag</span><span class="p">,</span><span class="n">cc</span> <span class="o">=</span> <span class="n">cross_correlate</span><span class="p">(</span><span class="n">shifted_flux2</span><span class="p">,</span><span class="n">ref_flux2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lag</span><span class="p">,</span><span class="n">cc</span><span class="p">,</span><span class="s2">".-"</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">"cross-correlation coefficient"</span><span class="p">)</span>
+<span class="n">lag</span><span class="p">,</span> <span class="n">cc</span> <span class="o">=</span> <span class="n">cross_correlate</span><span class="p">(</span><span class="n">shifted_flux2</span><span class="p">,</span> <span class="n">ref_flux2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lag</span><span class="p">,</span> <span class="n">cc</span><span class="p">,</span> <span class="s2">".-"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"cross-correlation coefficient"</span><span class="p">)</span>
 
 <span class="c1"># fit quadratic near the peak to find the pixel shift</span>
 <span class="n">fitter</span> <span class="o">=</span> <span class="n">fitting</span><span class="o">.</span><span class="n">LinearLSQFitter</span><span class="p">()</span>
 <span class="c1"># get the 5 points near the peak</span>
 <span class="n">width</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">low</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">cc</span><span class="p">)</span> <span class="o">-</span> <span class="n">width</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">cc</span><span class="p">)</span> <span class="o">+</span> <span class="n">width</span><span class="o">//</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="n">fit</span> <span class="o">=</span> <span class="n">fitter</span><span class="p">(</span><span class="n">Polynomial1D</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span><span class="n">x</span><span class="o">=</span><span class="n">lag</span><span class="p">[</span><span class="n">low</span><span class="p">:</span><span class="n">hi</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">cc</span><span class="p">[</span><span class="n">low</span><span class="p">:</span><span class="n">hi</span><span class="p">])</span>
-<span class="n">x_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_c</span><span class="p">,</span> <span class="n">fit</span><span class="p">(</span><span class="n">x_c</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">"fitted quadratic curve"</span><span class="p">)</span>
+<span class="n">fit</span> <span class="o">=</span> <span class="n">fitter</span><span class="p">(</span><span class="n">Polynomial1D</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="n">lag</span><span class="p">[</span><span class="n">low</span><span class="p">:</span><span class="n">hi</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">cc</span><span class="p">[</span><span class="n">low</span><span class="p">:</span><span class="n">hi</span><span class="p">])</span>
+<span class="n">x_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_c</span><span class="p">,</span> <span class="n">fit</span><span class="p">(</span><span class="n">x_c</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"fitted quadratic curve"</span><span class="p">)</span>
 <span class="c1"># finding the maxima</span>
 <span class="n">shift2</span> <span class="o">=</span> <span class="o">-</span><span class="n">fit</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.</span> <span class="o">*</span> <span class="n">fit</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">shift2</span><span class="p">,</span><span class="n">shift2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">"quadratic curve maxima"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">shift2</span><span class="p">,</span> <span class="n">shift2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"quadratic curve maxima"</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Lag [pix]"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Cross-correlation coeff"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"15168-01, G140M/C1222 Observations"</span><span class="p">)</span>
@@ -14036,14 +14045,14 @@ As seen in the plot, the spectrum is now shifted compared to the pipeline spectr
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get SHIFTA1, SHIFTA1 keywords from the first science extension</span>
 <span class="n">shifted_flt</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"./Shifted/</span><span class="si">{}</span><span class="s2">_flt.fits"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">))</span>
 <span class="c1"># since we have turned off WAVECOR at the beginning, SHIFTA1 should be 0</span>
-<span class="n">SHIFTA1</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getval</span><span class="p">(</span><span class="n">shifted_flt</span><span class="p">,</span><span class="s2">"SHIFTA1"</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">SHIFTA2</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getval</span><span class="p">(</span><span class="n">shifted_flt</span><span class="p">,</span><span class="s2">"SHIFTA2"</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">assert</span> <span class="p">(</span><span class="n">SHIFTA1</span><span class="o">==</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">SHIFTA2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">SHIFTA1</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getval</span><span class="p">(</span><span class="n">shifted_flt</span><span class="p">,</span> <span class="s2">"SHIFTA1"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">SHIFTA2</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">getval</span><span class="p">(</span><span class="n">shifted_flt</span><span class="p">,</span> <span class="s2">"SHIFTA2"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">SHIFTA1</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">SHIFTA2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
 <span class="c1"># update SHIFTA1 (only in the spectral direction)</span>
 <span class="n">SHIFTA1</span> <span class="o">+=</span> <span class="n">shift</span>
 <span class="c1"># update the the SHIFTA1, SHIFTA1 keywords in the _raw fits file first science extension</span>
-<span class="n">fits</span><span class="o">.</span><span class="n">setval</span><span class="p">(</span><span class="n">pip_raw</span><span class="p">,</span><span class="s2">"SHIFTA1"</span><span class="p">,</span><span class="n">value</span><span class="o">=</span><span class="n">SHIFTA1</span><span class="p">,</span><span class="n">ext</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">fits</span><span class="o">.</span><span class="n">setval</span><span class="p">(</span><span class="n">pip_raw</span><span class="p">,</span><span class="s2">"SHIFTA2"</span><span class="p">,</span><span class="n">value</span><span class="o">=</span><span class="n">SHIFTA2</span><span class="p">,</span><span class="n">ext</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fits</span><span class="o">.</span><span class="n">setval</span><span class="p">(</span><span class="n">pip_raw</span><span class="p">,</span> <span class="s2">"SHIFTA1"</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">SHIFTA1</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fits</span><span class="o">.</span><span class="n">setval</span><span class="p">(</span><span class="n">pip_raw</span><span class="p">,</span> <span class="s2">"SHIFTA2"</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">SHIFTA2</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14064,8 +14073,8 @@ As seen in the plot, the spectrum is now shifted compared to the pipeline spectr
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fits</span><span class="o">.</span><span class="n">setval</span><span class="p">(</span><span class="n">pip_raw</span><span class="p">,</span><span class="s2">"WAVECORR"</span><span class="p">,</span><span class="n">value</span><span class="o">=</span><span class="s2">"OMIT"</span><span class="p">,</span><span class="n">ext</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">assert</span> <span class="n">fits</span><span class="o">.</span><span class="n">getval</span><span class="p">(</span><span class="n">pip_raw</span><span class="p">,</span><span class="n">keyword</span><span class="o">=</span><span class="s2">"WAVECORR"</span><span class="p">,</span><span class="n">ext</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"OMIT"</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fits</span><span class="o">.</span><span class="n">setval</span><span class="p">(</span><span class="n">pip_raw</span><span class="p">,</span> <span class="s2">"WAVECORR"</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">"OMIT"</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">fits</span><span class="o">.</span><span class="n">getval</span><span class="p">(</span><span class="n">pip_raw</span><span class="p">,</span> <span class="n">keyword</span><span class="o">=</span><span class="s2">"WAVECORR"</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"OMIT"</span>
 </pre></div>
 
     </div>
@@ -14091,7 +14100,7 @@ As seen in the plot, the spectrum is now shifted compared to the pipeline spectr
     <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s2">"./Recalibration"</span><span class="p">)</span>
 <span class="n">Path</span><span class="p">(</span><span class="s2">"./Recalibration"</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1"># Recalibration</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">stistools</span><span class="o">.</span><span class="n">calstis</span><span class="o">.</span><span class="n">calstis</span><span class="p">(</span><span class="n">pip_raw</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">outroot</span><span class="o">=</span><span class="s2">"./Recalibration/"</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">stistools</span><span class="o">.</span><span class="n">calstis</span><span class="o">.</span><span class="n">calstis</span><span class="p">(</span><span class="n">pip_raw</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">outroot</span><span class="o">=</span><span class="s2">"./Recalibration/"</span><span class="p">)</span>
 <span class="c1"># calstis returns 0 if calibration completes; if not, raise assertion error</span>
 <span class="k">assert</span> <span class="n">res</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"CalSTIS exited with an error:  </span><span class="si">{</span><span class="n">res</span><span class="si">}</span><span class="s2">"</span>
 <span class="n">recal_x1d</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"./Recalibration/</span><span class="si">{}</span><span class="s2">_x1d.fits"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">))</span>
@@ -14113,13 +14122,13 @@ As seen in the plot, the spectrum is now shifted compared to the pipeline spectr
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 *** CALSTIS-0 -- Version 3.4.2 (19-Jan-2018) ***
-Begin    14-Apr-2023 14:21:23 EDT
+Begin    02-May-2023 20:59:12 EDT
 
 Input    ./mastDownload/HST/odj101050/odj101050_raw.fits
 Outroot  ./Recalibration/odj101050_raw.fits
 
 *** CALSTIS-1 -- Version 3.4.2 (19-Jan-2018) ***
-Begin    14-Apr-2023 14:21:24 EDT
+Begin    02-May-2023 20:59:14 EDT
 Input    ./mastDownload/HST/odj101050/odj101050_raw.fits
 Output   ./Recalibration/odj101050_flt.fits
 OBSMODE  ACCUM
@@ -14127,7 +14136,7 @@ APERTURE 52X0.2
 OPT_ELEM G140M
 DETECTOR FUV-MAMA
 
-Imset 1  Begin 14:21:24 EDT
+Imset 1  Begin 20:59:14 EDT
 
 DQICORR  PERFORM
 DQITAB   oref$uce15153o_bpx.fits
@@ -14169,27 +14178,27 @@ DOPPCORR applied to DQICORR, DARKCORR, FLATCORR
 
 STATFLAG PERFORM
 STATFLAG COMPLETE
-Imset 1  End 14:21:25 EDT
+Imset 1  End 20:59:16 EDT
 
-End      14-Apr-2023 14:21:25 EDT
+End      02-May-2023 20:59:16 EDT
 
 *** CALSTIS-1 complete ***
 
 *** CALSTIS-7 -- Version 3.4.2 (19-Jan-2018) ***
-Begin    14-Apr-2023 14:21:25 EDT
+Begin    02-May-2023 20:59:16 EDT
 Input    ./Recalibration/odj101050_flt.fits
 Output   ./Recalibration/odj101050_x2d.fits
 OBSMODE  ACCUM
 APERTURE 52X0.2
 OPT_ELEM G140M
 DETECTOR FUV-MAMA
-Imset 1  Begin 14:21:27 EDT
+Imset 1  Begin 20:59:18 EDT
 Warning  Wavecal processing has not been performed.
 
 HELCORR  PERFORM
 HELCORR  COMPLETE
 
-Order 1  Begin 14:21:27 EDT
+Order 1  Begin 20:59:18 EDT
 
 X2DCORR  PERFORM
 DISPCORR PERFORM
@@ -14233,15 +14242,15 @@ TDSTAB   DESCRIP =Updated time and temperature sensitivities for all optical ele
 FLUXCORR COMPLETE
 X2DCORR  COMPLETE
 DISPCORR COMPLETE
-Order 1  End 14:21:28 EDT
-Imset 1  End 14:21:28 EDT
+Order 1  End 20:59:20 EDT
+Imset 1  End 20:59:20 EDT
 
-End      14-Apr-2023 14:21:28 EDT
+End      02-May-2023 20:59:20 EDT
 
 *** CALSTIS-7 complete ***
 
 *** CALSTIS-6 -- Version 3.4.2 (19-Jan-2018) ***
-Begin    14-Apr-2023 14:21:28 EDT
+Begin    02-May-2023 20:59:20 EDT
 
 Warning  Grating-aperture throughput correction table (GACTAB) was not found,
          and no gac corrections will be applied
@@ -14261,9 +14270,9 @@ SPTRCTAB oref$q8l14504o_1dt.fits
 SPTRCTAB PEDIGREE=INFLIGHT 27/02/1997 06/02/1999
 SPTRCTAB DESCRIP =New G140L traces and updated Echelle A2CENTER values
 
-Imset 1  Begin 14:21:29 EDT
+Imset 1  Begin 20:59:21 EDT
          Input read into memory.
-Order 1  Begin 14:21:29 EDT
+Order 1  Begin 20:59:22 EDT
 X1DCORR  PERFORM
 BACKCORR PERFORM
 ******** Calling Slfit ***********BACKCORR COMPLETE
@@ -14304,16 +14313,16 @@ FLUXCORR COMPLETE
 SGEOCORR OMIT
 
          Row 1 written to disk.
-Order 1  End 14:21:30 EDT
+Order 1  End 20:59:22 EDT
 
-Imset 1  End 14:21:30 EDT
+Imset 1  End 20:59:22 EDT
 
 Warning  Keyword `XTRACALG&#39; is being added to header.
-End      14-Apr-2023 14:21:30 EDT
+End      02-May-2023 20:59:22 EDT
 
 *** CALSTIS-6 complete ***
 
-End      14-Apr-2023 14:21:30 EDT
+End      02-May-2023 20:59:22 EDT
 
 *** CALSTIS-0 complete ***
 </pre>
@@ -14338,30 +14347,30 @@ End      14-Apr-2023 14:21:30 EDT
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="k">with</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">pip_x1d</span><span class="p">)</span> <span class="k">as</span> <span class="n">hdu1</span><span class="p">,</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">shifted_x1d</span><span class="p">)</span> <span class="k">as</span> <span class="n">hdu2</span><span class="p">:</span>
     <span class="n">pip_wl</span> <span class="o">=</span> <span class="n">hdu1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"WAVELENGTH"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">pip_flux</span> <span class="o">=</span> <span class="n">hdu1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"FLUX"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    
+
     <span class="n">shifted_wl</span> <span class="o">=</span> <span class="n">hdu2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"WAVELENGTH"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">shifted_flux</span> <span class="o">=</span> <span class="n">hdu2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"FLUX"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pip_wl</span><span class="p">,</span><span class="n">pip_flux</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">"Pipeline Spectrum (</span><span class="si">{}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">),</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">shifted_wl</span><span class="p">,</span><span class="n">shifted_flux</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">"Shifted spectrum (</span><span class="si">{}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">),</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pip_wl</span><span class="p">,</span> <span class="n">pip_flux</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Pipeline Spectrum (</span><span class="si">{}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">shifted_wl</span><span class="p">,</span> <span class="n">shifted_flux</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Shifted spectrum (</span><span class="si">{}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"best"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Wavelength [Å]"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Flux [ergs/s/cm$^2$/Å]"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Pipeline and Shifted _x1d Spectrum"</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="k">with</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">pip_x1d</span><span class="p">)</span> <span class="k">as</span> <span class="n">hdu1</span><span class="p">,</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">recal_x1d</span><span class="p">)</span> <span class="k">as</span> <span class="n">hdu2</span><span class="p">:</span>
     <span class="n">wl1</span> <span class="o">=</span> <span class="n">hdu1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"WAVELENGTH"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">10</span><span class="p">:</span><span class="o">-</span><span class="mi">10</span><span class="p">]</span>
     <span class="n">wl2</span> <span class="o">=</span> <span class="n">hdu2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"WAVELENGTH"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">10</span><span class="p">:</span><span class="o">-</span><span class="mi">10</span><span class="p">]</span>
-    
+
     <span class="n">flux1</span> <span class="o">=</span> <span class="n">hdu1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"FLUX"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">10</span><span class="p">:</span><span class="o">-</span><span class="mi">10</span><span class="p">]</span>
     <span class="n">flux2</span> <span class="o">=</span> <span class="n">hdu2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"FLUX"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">10</span><span class="p">:</span><span class="o">-</span><span class="mi">10</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wl1</span><span class="p">,</span><span class="n">flux1</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">"Pipeline Spectrum (</span><span class="si">{}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">),</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wl2</span><span class="p">,</span><span class="n">flux2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">"Recalibrated Spectrum (</span><span class="si">{}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">),</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wl1</span><span class="p">,</span> <span class="n">flux1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Pipeline Spectrum (</span><span class="si">{}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wl2</span><span class="p">,</span> <span class="n">flux2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Recalibrated Spectrum (</span><span class="si">{}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_id</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"best"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Wavelength [Å]"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Flux [ergs/s/cm$^2$/Å]"</span><span class="p">)</span>
@@ -14401,15 +14410,15 @@ End      14-Apr-2023 14:21:30 EDT
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <h2>About this Notebook <a class="tocSkip"></h2>
-<p><strong>Author:</strong> <a href="kding@stsci.edu">Keyi Ding</a></p>
-<p><strong>Updated On:</strong> 2023-04-14</p>
+<p><strong>Author:</strong> Keyi Ding</p>
+<p><strong>Updated On:</strong> 2023-05-18</p>
 <blockquote><p><em>This tutorial was generated to be in compliance with the <a href="https://github.com/spacetelescope/style-guides">STScI style guides</a> and would like to cite the <a href="https://github.com/spacetelescope/style-guides/blob/master/templates/example_notebook.ipynb">Jupyter guide</a> in particular.</em></p>
 <h2>Citations <a class="tocSkip"></h2>
 </blockquote>
 <p>If you use <code>astropy</code>, <code>matplotlib</code>, <code>astroquery</code>, or <code>numpy</code> for published research, please cite the
 authors. Follow these links for more information about citations:</p>
 <ul>
-<li><a href="https://www.scipy.org/citing.html">Citing <code>astropy</code>/<code>numpy</code>/<code>matplotlib</code></a></li>
+<li><a href="https://www.astropy.org/acknowledging.html">Citing <code>astropy</code></a>/<a href="https://numpy.org/citing-numpy/"><code>numpy</code></a>/<a href="https://matplotlib.org/stable/users/project/citing.html"><code>matplotlib</code></a></li>
 <li><a href="https://astroquery.readthedocs.io/en/latest/">Citing <code>astroquery</code></a></li>
 </ul>
 <hr>
